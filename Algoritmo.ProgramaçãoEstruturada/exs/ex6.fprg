@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Win10"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-22 02:05:40 "/>
+        <attribute name="created" value="V2luMTA7REVTS1RPUC1OUlVQSEkzOzIwMjMtMDgtMjI7IjExOjM2OjI1ICI7MjY5NQ=="/>
+        <attribute name="edited" value="V2luMTA7REVTS1RPUC1OUlVQSEkzOzIwMjMtMDgtMjI7IjAyOjA1OjQwICI7MzsyNzk4"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="ipi, cod1, cod2, valor1, valor2, qnt1, qnt2, valorfinal" type="Integer" array="False" size=""/>
+            <output expression="&quot;Qual a porcentagem de juros deseja atribuir as pe&#231;as?&quot;" newline="True"/>
+            <input variable="ipi"/>
+            <output expression="&quot;O c&#243;digo da pe&#231;a 1&quot;" newline="True"/>
+            <input variable="cod1"/>
+            <output expression="&quot;O c&#243;digo da pe&#231;a 2&quot;" newline="True"/>
+            <input variable="cod2"/>
+            <output expression="&quot;Valor unit&#225;rio da pe&#231;a 1&quot;" newline="True"/>
+            <input variable="valor1"/>
+            <output expression="&quot;Valor unit&#225;rio da pe&#231;a 2&quot;" newline="True"/>
+            <input variable="valor2"/>
+            <output expression="&quot;Quantidade de pe&#231;as 1&quot;" newline="True"/>
+            <input variable="qnt1"/>
+            <output expression="&quot;Quantidade de pe&#231;as 2&quot;" newline="True"/>
+            <input variable="qnt2"/>
+            <assign variable="valorfinal" expression="(((valor1*qnt1) + (valor2 * qnt2)) * ((ipi/100)+1))"/>
+            <output expression="&quot;As pe&#231;as de c&#243;digo '&quot; &amp;cod1&amp; &quot;' e '&quot; &amp;cod2&amp; &quot;' tiverem impostos calculados para : &quot;&amp;valorfinal" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

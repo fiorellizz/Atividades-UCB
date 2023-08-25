@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="guilherme.fiorelli"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-21 08:40:46 "/>
+        <attribute name="created" value="Z3VpbGhlcm1lLmZpb3JlbGxpOzA0MUVUMDgxNzA4OzIwMjMtMDgtMjE7IjA4OjI2OjM4ICI7MzY3Ng=="/>
+        <attribute name="edited" value="Z3VpbGhlcm1lLmZpb3JlbGxpOzA0MUVUMDgxNzA4OzIwMjMtMDgtMjE7IjA4OjQwOjQ2ICI7MTszNzc5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="IdadeAnos, IdadeMeses, IdadeDias, IdadeTotalDias" type="Integer" array="False" size=""/>
+            <output expression="&quot;Informe sua idade em ANOS&quot;" newline="True"/>
+            <input variable="IdadeAnos"/>
+            <output expression="&quot;Informe sua idade em MESES&quot;" newline="True"/>
+            <input variable="IdadeMeses"/>
+            <output expression="&quot;Informe sua idade em DIAS&quot;" newline="True"/>
+            <input variable="IdadeDias"/>
+            <assign variable="IdadeTotalDias" expression="(IdadeAnos*365) + (IdadeMeses*30) + (IdadeDias)"/>
+            <output expression="&quot;Sua idade em dias &#233; &quot;&amp;IdadeTotalDias" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

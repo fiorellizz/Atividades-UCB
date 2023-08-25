@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="guilherme.fiorelli"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-21 09:15:32 "/>
+        <attribute name="created" value="Z3VpbGhlcm1lLmZpb3JlbGxpOzA0MUVUMDgxNzA4OzIwMjMtMDgtMjE7IjA4OjQwOjUxICI7MzY2Nw=="/>
+        <attribute name="edited" value="Z3VpbGhlcm1lLmZpb3JlbGxpOzA0MUVUMDgxNzA4OzIwMjMtMDgtMjE7IjA5OjE1OjMyICI7MTszNzc3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nota1, nota2, nota3, mediasempeso, mediacompeso, peso" type="Real" array="False" size=""/>
+            <output expression="&quot;Escreva sua primeira nota!&quot;" newline="True"/>
+            <input variable="nota1"/>
+            <output expression="&quot;Escreva sua segunda nota!&quot;" newline="True"/>
+            <input variable="nota2"/>
+            <output expression="&quot;Escreva sua terceira nota!&quot;" newline="True"/>
+            <input variable="nota3"/>
+            <output expression="&quot;Voc&#234; quer usar pesos? se sim, digite 1&quot;" newline="True"/>
+            <input variable="peso"/>
+            <if expression="peso=1">
+                <then>
+                    <assign variable="mediacompeso" expression="((nota1*3) + (nota2*3) + (nota3*4)) / 10"/>
+                    <output expression="&quot;Sua m&#233;dia &#233; &quot;&amp;mediacompeso" newline="True"/>
+                </then>
+                <else>
+                    <assign variable="mediasempeso" expression="((nota1) + (nota2) + (nota3)) / 3"/>
+                    <output expression="&quot;Sua m&#233;dia &#233; &quot; &amp;mediasempeso" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

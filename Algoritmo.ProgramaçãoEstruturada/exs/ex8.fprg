@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Win10"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-22 03:02:29 "/>
+        <attribute name="created" value="V2luMTA7REVTS1RPUC1OUlVQSEkzOzIwMjMtMDgtMjI7IjAxOjU1OjQ1ICI7MjY5Nw=="/>
+        <attribute name="edited" value="V2luMTA7REVTS1RPUC1OUlVQSEkzOzIwMjMtMDgtMjI7IjAzOjAyOjI5ICI7NzsyODA3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="TotalEleitores, Vbrancos, Vnulos, Vvalidos, VB, VN, VV" type="Real" array="False" size=""/>
+            <output expression="&quot;Total de eleitores do munic&#237;pio?&quot;" newline="True"/>
+            <input variable="TotalEleitores"/>
+            <output expression="&quot;Total de votos brancos?&quot;" newline="True"/>
+            <input variable="Vbrancos"/>
+            <output expression="&quot;Total de votos nulos?&quot;" newline="True"/>
+            <input variable="Vnulos"/>
+            <output expression="&quot;Total de votos v&#225;lidos?&quot;" newline="True"/>
+            <input variable="Vvalidos"/>
+            <if expression="(Vbrancos + Vnulos + Vvalidos) &gt; TotalEleitores">
+                <then>
+                    <output expression="&quot;Valores, invalidos. A soma de votos foi maior que o total de eleitores!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="(Vbrancos + Vnulos + Vvalidos) = TotalEleitores">
+                        <then>
+                            <assign variable="VB" expression="((Vbrancos / TotalEleitores)*100)"/>
+                            <assign variable="VN" expression="((Vnulos / TotalEleitores)*100)"/>
+                            <assign variable="VV" expression="((Vvalidos / TotalEleitores)*100)"/>
+                            <output expression="&quot;Porcentagem de VOTOS BRANCOS :&quot;&amp;VB&amp;&quot;%. Porcentagem de VOTOS NULOS :&quot;&amp;VN&amp;&quot;%. Porcentagem de VOTOS V&#193;LIDOS :&quot;&amp;VV&amp;&quot;%.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;A soma dos total de votos n&#227;o s&#227;o equivalentes ao total de eleitores&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

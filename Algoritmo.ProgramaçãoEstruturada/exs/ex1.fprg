@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="guilherme.fiorelli"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-21 07:58:59 "/>
+        <attribute name="created" value="Z3VpbGhlcm1lLmZpb3JlbGxpOzA0MUVUMDgxNzA4OzIwMjMtMDgtMjE7IjA3OjQ5OjI5ICI7MzY4MA=="/>
+        <attribute name="edited" value="Z3VpbGhlcm1lLmZpb3JlbGxpOzA0MUVUMDgxNzA4OzIwMjMtMDgtMjE7IjA3OjU4OjU5ICI7MTszNzkx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="numero" type="Integer" array="False" size=""/>
+            <output expression="&quot;Informe um n&#250;mero diferente de 0&quot;" newline="True"/>
+            <input variable="numero"/>
+            <while expression="numero=0">
+                <output expression="&quot;Informe um n&#250;mero diferente de 0&quot;" newline="True"/>
+                <input variable="numero"/>
+            </while>
+            <if expression="numero&gt;0">
+                <then>
+                    <output expression="&quot;O n&#250;mero informado &#233; POSITIVO&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;O n&#250;mero informado &#233; NEGATIVO&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
