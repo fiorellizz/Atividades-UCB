@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="guilherme.fiorelli"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-08-22 09:08:58 "/>
+        <attribute name="created" value="Z3VpbGhlcm1lLmZpb3JlbGxpOzA0MUVUMDgxNzE2OzIwMjMtMDgtMjI7IjA3OjU4OjM2ICI7MzY3OA=="/>
+        <attribute name="edited" value="Z3VpbGhlcm1lLmZpb3JlbGxpOzA0MUVUMDgxNzE2OzIwMjMtMDgtMjI7IjA5OjA4OjU4ICI7MzszNzg5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="salariobruto, imposto, salarioliquido" type="Real" array="False" size=""/>
+            <output expression="&quot;Por favor, informe seu SAL&#193;RIO BRUTO: &quot;" newline="True"/>
+            <input variable="salariobruto"/>
+            <if expression="salariobruto &lt;= 2112.00">
+                <then>
+                    <output expression="&quot;Seu imposto &#233; isento&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="(salariobruto &gt;= 2112.01)&amp;&amp;(salariobruto &lt;= 2826.65)">
+                        <then>
+                            <assign variable="imposto" expression="((salariobruto - 2112.01) * 0.075)"/>
+                        </then>
+                        <else>
+                            <if expression="(salariobruto &gt;= 2826.66)&amp;&amp;(salariobruto &lt;= 3751.05)">
+                                <then>
+                                    <assign variable="imposto" expression="(((salariobruto - 2826.66) * 0.15) + 53.6)"/>
+                                </then>
+                                <else>
+                                    <if expression="(salariobruto &gt;= 3751.06)&amp;&amp;(salariobruto &lt;= 4664.68)">
+                                        <then>
+                                            <assign variable="imposto" expression="(((salariobruto - 3751.06) * 0.225) + 53.6 + 138.66)"/>
+                                        </then>
+                                        <else>
+                                            <if expression="salariobruto &gt; 4664.68">
+                                                <then>
+                                                    <assign variable="imposto" expression="(((salariobruto - 4664.68) * 0.275) + 53.6 + 138.66 + 205.57)"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <output expression="&quot;Seu imposto &#233; de: &quot;&amp;imposto" newline="True"/>
+                    <assign variable="salarioliquido" expression="salariobruto - imposto"/>
+                    <output expression="&quot;Seu sal&#225;rio liquido &#233; de &quot;&amp;salarioliquido" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
