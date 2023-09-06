@@ -1,15 +1,14 @@
 programa {
   funcao inicio() {
-    inteiro numero, resto, resultado
-    escreva("Digite um número: ")
+    inteiro numero, resultado
+    escreva("Digite um nÃºmero: ")
     leia(numero)
-    resto = numero % 2
-    se(resto == 0){
+    se(numero > 0){
       resultado = numero * 2
-      escreva("O dobro do número é ",resultado,"!")
+      escreva("O dobro do nÃºmero Ã© ",resultado,"!")
     } senao {
       resultado = numero * 3
-      escreva("O triplo do número é ",resultado,"!")
+      escreva("O triplo do nÃºmero Ã© ",resultado,"!")
     }
   }
 }
