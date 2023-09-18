@@ -2,7 +2,7 @@
  ---
 # Lista 1
 ---
-A seguir o enunciado de cada questão resolvida.
+_*A seguir o enunciado de cada questão resolvida.*_
 1. Crie um algoritmo que leia um número diferente de zero e diga se este número é
 positivo ou negativo.
 1. Crie um algoritmo que receba 3 números e informe qual o maior entre eles.
@@ -27,7 +27,7 @@ somas repetidas. (ex: 2 e 3 = 2 + 2 + 2).
 --- 
 # Exercícios feitos.
 ---
-Resposta de cada exercícios.
+_*Resposta de cada exercícios.*_
 * [Exercício 1](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex1.fprg)
 * [Exercício 2](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex2.fprg)
 * [Exercício 3](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex3.fprg)
