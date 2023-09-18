@@ -1,6 +1,7 @@
 # Exercícios usando Flowgorithm
  ---
-# Lista 1 
+# Lista 1
+---
 A seguir o enunciado de cada questão resolvida.
 1. Crie um algoritmo que leia um número diferente de zero e diga se este número é
 positivo ou negativo.
@@ -25,4 +26,13 @@ somas repetidas. (ex: 2 e 3 = 2 + 2 + 2).
 1. Escreva um algoritmo para ler o número total de eleitores de um município, o número de votos brancos, nulos e válidos. Calcular e escrever o percentual que cada um representa em relação ao total de eleitores.
 --- 
 # Exercícios feitos.
-1. [Exercício UM]()
+---
+Resposta de cada exercícios.
+* [Exercício 1](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex1.fprg)
+* [Exercício 2](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex2.fprg)
+* [Exercício 3](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex3.fprg)
+* [Exercício 4](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex4.fprg)
+* [Exercício 5](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex5.fprg)
+* [Exercício 6](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex6.fprg)
+* [Exercício 7](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex7.fprg)
+* [Exercício 8](https://github.com/fiorellizz/Atividades-UCB/blob/main/Algoritmo.Programa%C3%A7%C3%A3oEstruturada/Exerc%C3%ADciosFlowgorithm/Lista1%208ex/ex8.fprg)
