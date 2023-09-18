@@ -19,8 +19,7 @@ mostra o resultado.
    1. a percentagem do IPI a ser acrescido no valor das peças
    1. o código da peça 1, valor unitário da peça 1, quantidade de peças 1
    1. o código da peça 2, valor unitário da peça 2, quantidade de peças 2
-      O algoritmo deve calcular o valor total a ser pago e apresentar o resultado.
-      Fórmula : (valor1 * quant1 + valor2 * quant2) * (IPI/100 + 1)
+   1. O algoritmo deve calcular o valor total a ser pago e apresentar o resultado. Fórmula : (valor1 * quant1 + valor2 * quant2) * (IPI/100 + 1)
 1. Crie um algoritmo que recebe 2 números e multiplica o num1 pelo num2 através de
 somas repetidas. (ex: 2 e 3 = 2 + 2 + 2).
 1. Escreva um algoritmo para ler o número total de eleitores de um município, o número de votos brancos, nulos e válidos. Calcular e escrever o percentual que cada um representa em relação ao total de eleitores.
