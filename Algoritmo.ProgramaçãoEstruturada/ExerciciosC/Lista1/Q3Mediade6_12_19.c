@@ -1,3 +1,5 @@
+//Faça um programa em C que imprima a média aritmética entre os números 6, 12, 19.
+
 #include <stdio.h>
 
 int main()
