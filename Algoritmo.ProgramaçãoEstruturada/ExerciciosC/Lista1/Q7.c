@@ -8,13 +8,13 @@ int main() {
         char telefone[20];
 
         printf("Digite o nome do cliente: ");
-        scanf("%s", nome);
+        gets(nome);
 
         printf("Digite o endereço do cliente: ");
-        scanf("%s", endereco);
+        gets(endereco);
 
         printf("Digite o telefone do cliente: ");
-        scanf("%s", telefone);
+        gets(telefone);
 
         printf("\nDados do cliente:\n");
         printf("Nome: %s\n", nome);
