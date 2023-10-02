@@ -1,20 +1,23 @@
-//Faça um programa que imprima os múltiplos de 5, no intervalo de 1 até 500.
+// Faça um programa que imprima os múltiplos de 5, no intervalo de 1 até 500.
 
-#include<stdio.h>
+#include <stdio.h>
 
-int main(){
+int main()
+{
 
-        int contador = 1, numero = 1;
+    int contador = 1, numero = 1;
 
-        while(contador <= 500){
-            if(numero % 5 == 0){
-            printf("%d\n",numero);
-            }
+    while (contador <= 500)
+    {
+        if (numero % 5 == 0)
+        {
+            printf("%d\n", numero);
+        }
         numero++;
         contador++;
-        }
+    }
 
-        return 0;
+    return 0;
 }
 
 /*#include<stdio.h>
@@ -29,5 +32,5 @@ int main(){
     numero = numero + 5;
         }
 
-        return 0;
+    return 0;
 }*/

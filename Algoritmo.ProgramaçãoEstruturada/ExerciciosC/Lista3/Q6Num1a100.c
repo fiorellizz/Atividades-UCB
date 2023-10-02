@@ -1,17 +1,18 @@
-//Faça um programa em C que imprima todos os números de 1 até 100.
+// Faça um programa em C que imprima todos os números de 1 até 100.
 
-#include<stdio.h>
+#include <stdio.h>
 
+int main()
+{
 
-int main(){
+    int contador = 1, numero = 1;
 
-        int contador = 1, numero = 1;
+    while (contador <= 100)
+    {
+        printf("%d\n", numero);
+        numero++;
+        contador++;
+    }
 
-        while(contador <= 100){
-            printf("%d\n",numero);
-            numero++;
-            contador++;
-        }
-        
-        return 0;
+    return 0;
 }
