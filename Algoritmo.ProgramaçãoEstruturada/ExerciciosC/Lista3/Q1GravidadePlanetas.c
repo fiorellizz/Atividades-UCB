@@ -11,8 +11,6 @@ Em que:
 
 #include<stdio.h>
 #include<locale.h>
-#include<conio.h>
-#include<ctype.h>
 
 int main(){
         setlocale(LC_ALL, "Portuguese");
@@ -27,32 +25,32 @@ int main(){
         scanf("%f", &pesoTerra);
 
         switch(seletor){
-        case '1':
+        case 1:
             gravidade = 0.37;
             pesoPlaneta = (pesoTerra / 10) * gravidade;
             printf("O peso corresponde no planeta é %.2f", pesoPlaneta);
             break;
-        case '2':
+        case 2:
             gravidade = 0.88;
             pesoPlaneta = (pesoTerra / 10) * gravidade;
             printf("O peso corresponde no planeta é %.2f", pesoPlaneta);
             break;
-        case '3':
+        case 3:
             gravidade = 0.38;
             pesoPlaneta = (pesoTerra / 10) * gravidade;
             printf("O peso corresponde no planeta é %.2f", pesoPlaneta);
             break;
-        case '4':
+        case 4:
             gravidade = 2.64;
             pesoPlaneta = (pesoTerra / 10) * gravidade;
             printf("O peso corresponde no planeta é %.2f", pesoPlaneta);
             break;
-        case '5':
+        case 5:
             gravidade = 1.15;
             pesoPlaneta = (pesoTerra / 10) * gravidade;
             printf("O peso corresponde no planeta é %.2f", pesoPlaneta);
             break;
-        case '6':
+        case 6:
             gravidade = 1.17;
             pesoPlaneta = (pesoTerra / 10) * gravidade;
             printf("O peso corresponde no planeta é %.2f", pesoPlaneta);
