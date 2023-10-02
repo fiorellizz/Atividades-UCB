@@ -13,7 +13,7 @@ int main()
         printf("Pessoa %d\n", i + 1);
 
         printf("Digite o nome da pessoa: ");
-        scanf("%s", &nome);
+        scanf("%s", nome);
 
         printf("Digite a idade da pessoa: ");
         scanf("%d", &idade);

@@ -13,7 +13,7 @@ int main()
     for (int i = 0; i < qntalunos; i++)
     {
         printf("Digite o nome do %d° aluno: ", i + 1);
-        scanf("%s", &nome);
+        scanf("%s", nome);
 
         printf("Digite a nota 1 do aluno: ");
         scanf("%f", &nota1);
