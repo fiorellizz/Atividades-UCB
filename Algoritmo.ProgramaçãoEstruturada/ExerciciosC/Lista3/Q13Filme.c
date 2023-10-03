@@ -9,6 +9,7 @@ Criar um programa que receba a idade e a opinião de 20 espectadores, calcule e 
 • A percentagem de pessoas que responderam bom entre todos os expectadores analisados.*/
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
@@ -18,13 +19,15 @@ int main()
 
     printf("Quantas pessoas vao participar da entrevista: ");
     scanf("%f", &quantidadePessoas);
+    system("cls");
 
     for (int i = 0; i < quantidadePessoas; i++)
     {
-        printf("Digite sua idade: ");
+        printf("Digite a idade da %d° pessoa: ", i + 1);
         scanf("%d", &idade);
-        printf("Digite sua nota: ");
+        printf("Digite a nota:\nExcelente - 3\nBom - 2\nRegular - 1\n");
         scanf("%d", &notaFilme);
+        system("cls");
 
         switch (notaFilme)
         {
@@ -43,10 +46,10 @@ int main()
 
         default:
             valorInvalido++;
-            printf("Valores invalidos!");
             break;
         }
     }
+
     if (valorInvalido == 0)
     {
         somaIdadeEx = somaIdadeEx / quantidadePessoasEx;
@@ -54,6 +57,10 @@ int main()
         printf("A media das idades que responderam excelente: %.2f\n", somaIdadeEx);
         printf("Quantidade de pessoas que responderam regular: %.2f\n", quantidadeRegular);
         printf("Quantidade de pessoas que responderam bom de acordo com os demais: %.2f porcento", totalBom);
+    }
+    else
+    {
+        printf("Valores invalidos!");
     }
 
     return 0;
