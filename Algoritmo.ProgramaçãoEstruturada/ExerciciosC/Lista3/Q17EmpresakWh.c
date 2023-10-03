@@ -1,4 +1,5 @@
-/*Uma empresa de fornecimento de energia elétrica faz a leitura mensal dos medidores de consumo. Para cada consumidor, são digitados os seguintes dados:
+/*
+Uma empresa de fornecimento de energia elétrica faz a leitura mensal dos medidores de consumo. Para cada consumidor, são digitados os seguintes dados:
 
 • número do consumidor
 • quantidade de kWh consumidos durante o mês
@@ -9,8 +10,9 @@
 
 Os dados devem ser lidos até que seja encontrado o consumidor com número 0 (zero). O programa deve calcular e imprimir:
 • O custo total para cada consumidor (ok)
-• O total de consumo para os três tipos de consumidor
-• A média de consumo dos tipos 1 e 2*/
+• O total de consumo para os três tipos de consumidor (ok)
+• A média de consumo dos tipos 1 e 2 (ok)
+*/ 
 
 #include <stdio.h>
 #include <stdlib.h>
