@@ -5,7 +5,7 @@ int main()
 
     float salariobruto, inss, irrf, salariofinal;
 
-    printf("Digite ifu salário bruto: ");
+    printf("Digite seu salário bruto: ");
     scanf("%f", &salariobruto);
 
     if (salariobruto < 1320)
@@ -24,13 +24,9 @@ int main()
     {
         inss = ((salariobruto - 3856.93) * 0.14) + 99 + 112.61 + 154.28;
     }
-    else if (salariobruto > 7507.48)
-    {
-        inss = ((7507.48 - 3856.93) * 0.14) + 99 + 112.61 + 154.28;
-    }
     else
     {
-        // nda
+        inss = ((7507.48 - 3856.93) * 0.14) + 99 + 112.61 + 154.28;
     }
     salariobruto = salariobruto - inss;
 
@@ -50,13 +46,9 @@ int main()
     {
         irrf = (((salariobruto - 3751.06) * 0.225) + 53.6 + 138.66);
     }
-    else if (salariobruto > 4664.68)
-    {
-        irrf = (((salariobruto - 4664.68) * 0.275) + 53.6 + 138.66 + 205.57);
-    }
     else
     {
-        // nda
+        irrf = (((salariobruto - 4664.68) * 0.275) + 53.6 + 138.66 + 205.57);
     }
     salariofinal = salariobruto - irrf;
     printf("Seu INSS foi: %.2f\nSeu IRRF foi: %.2f \nSeu salário com todos os impostos ficou em: %.2f", inss, irrf, salariofinal);
