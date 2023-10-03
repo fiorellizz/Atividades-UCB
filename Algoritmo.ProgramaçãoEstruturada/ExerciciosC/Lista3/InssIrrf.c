@@ -28,6 +28,7 @@ int main()
     {
         inss = ((7507.48 - 3856.93) * 0.14) + 99 + 112.61 + 154.28;
     }
+    
     salariobruto = salariobruto - inss;
 
     if (salariobruto <= 2112.00)
