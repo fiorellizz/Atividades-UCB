@@ -54,9 +54,7 @@ int main()
     {
         somaIdadeEx = somaIdadeEx / quantidadePessoasEx;
         totalBom = (totalBom / quantidadePessoas) * 100;
-        printf("A media das idades que responderam excelente: %.2f\n", somaIdadeEx);
-        printf("Quantidade de pessoas que responderam regular: %.2f\n", quantidadeRegular);
-        printf("Quantidade de pessoas que responderam bom de acordo com os demais: %.2f porcento", totalBom);
+        printf("A media das idades que responderam excelente: %.2f\nQuantidade de pessoas que responderam regular: %.2f\nQuantidade de pessoas que responderam bom de acordo com os demais: %.2f porcento", somaIdadeEx, quantidadeRegular, totalBom);
     }
     else
     {
