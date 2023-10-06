@@ -16,6 +16,7 @@ Os dados devem ser lidos até que seja encontrado o consumidor com número 0 (ze
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
 int main()
 {
