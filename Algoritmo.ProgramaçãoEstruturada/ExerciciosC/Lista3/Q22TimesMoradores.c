@@ -1,4 +1,26 @@
+/*Uma pesquisa de opinião realizada no Rio de Janeiro, teve as seguintes perguntas:
 
+• Qual o seu time de coração?
+1-Fluminense;
+2-Botafogo;
+3-Vasco;
+4-Flamengo;
+5-Outros
+
+• Onde você mora?
+1-RJ;
+2-Niterói;
+3-Outros
+
+• Qual o seu salário?
+
+Faça um programa que imprima:
+• o número de torcedores por clube;
+• a média salarial dos torcedores do Botafogo;
+• o número de pessoas moradoras do Rio de Janeiro, torcedores de outros clubes;
+• o número de pessoas de Niterói torcedoras do Fluminense
+
+Obs.: O programa encerra quando se digita 0 para o time.*/
 
 #include <stdio.h>
 #include <stdlib.h>
