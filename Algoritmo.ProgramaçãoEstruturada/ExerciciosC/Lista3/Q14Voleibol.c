@@ -45,7 +45,7 @@ int main()
                 jovem = idade[i];
             }
         }
-        
+
         pesoMedioTime = pesoMedioTime / jogadores;
         idadeMediaTime = idadeMediaTime / jogadores;
         system("cls");
@@ -73,6 +73,7 @@ int main()
     /*peso e idade media total*/
     pesoTotal = pesoTotal / (jogadores * times);
     idadeTotal = idadeTotal / (jogadores * times);
+    printf("RELATORIO FINAL\n");
     printf("O peso medio de todos os atletas é de: %.2f kilos\n", pesoTotal);
     printf("A idade media de todos os atletas é de: %.0f anos", pesoTotal);
 
