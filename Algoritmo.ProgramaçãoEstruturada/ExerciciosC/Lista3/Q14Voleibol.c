@@ -6,33 +6,75 @@
 • O peso médio e a idade média de todos os participantes.*/
 
 #include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
 
-int main(){
+int main()
+{
+    system("cls");
+    int jogadores = 12, times = 2;
+    float peso[12], idade[12], pesado = 0, jovem = 200, pesoMedioTime = 0, idadeMediaTime = 0, pesoTotal = 0, idadeTotal = 0;
 
-    float peso, idade, pesoMedioTime = 0, idadeMediaTime = 0, pesado = 0, jovem, pesoMedioTotal, idadeMediaTotal;
-    int i, j, count = 12;
-
-    for (i = 0; i < 2; i++)
+    for (int i = 0; i < times; i++) // rodar para os 30 times
     {
-        for (j = 0; j < count; j++)
+        printf("DIGITE OS DADOS DO %d° TIME\n", i + 1);
+        for (int i = 0; i < jogadores; i++) // coletar idades e peso de cada time
         {
-            printf("Digite o peso do %d° jogador: ", j + 1);
-            scanf("%f", &peso);
-            printf("Digite a idade do %d° jogador: ", j + 1);
-            scanf("%f", &idade);
-            pesoMedioTime = pesoMedioTime + peso;
-            idadeMediaTime = idadeMediaTime + idade;
+            printf("Digite o peso do %d° jogador: ", i + 1);
+            scanf("%f", &peso[i]);
+            printf("Digite a idade do %d° jogador: ", i + 1);
+            scanf("%f", &idade[i]);
+            pesoMedioTime = pesoMedioTime + peso[i];
+            idadeMediaTime = idadeMediaTime + idade[i];
+            pesoTotal = pesoTotal + peso[i];
+            idadeTotal = idadeTotal + idade[i];
+        }
 
-            if (peso > pesado)
+        for (int i = 0; i < jogadores; i++) // passar por todos os vetores e pegar o maior peso
+        {
+            if (peso[i] > pesado)
             {
-                pesado = peso;
+                pesado = peso[i];
             }
-            
-            
+        }
+
+        for (int i = 0; i < jogadores; i++) // passar por todos os vetores e pegar a menor idade
+        {
+            if (idade[i] < jovem)
+            {
+                jovem = idade[i];
+            }
         }
         
-        
-        
+        pesoMedioTime = pesoMedioTime / jogadores;
+        idadeMediaTime = idadeMediaTime / jogadores;
+        system("cls");
+        printf("RELATORIO DO %d° TIME\n", i + 1);
+        printf("A media de peso do time é de: %.2f kilos\n", pesoMedioTime);
+        printf("A media de idade do time é de: %.1f anos\n", idadeMediaTime);
+        printf("O atleta mais pesado do time tem: %.2f kilos\n", pesado);
+        printf("O atleta mais novo do time tem: %.0f anos\n", jovem);
+
+        for (int i = 0; i < jogadores; i++) // zerando os dados para usar para outros jogadores
+        {
+            peso[i] = 0;
+            idade[i] = 0;
+        }
+        pesado = 0;
+        jovem = 200;
+        pesoMedioTime = 0;
+        idadeMediaTime = 0;
+
+        printf("Digite qualquer tecla para continuar...");
+        getch();
+        system("cls");
     }
-    
+
+    /*peso e idade media total*/
+    pesoTotal = pesoTotal / (jogadores * times);
+    idadeTotal = idadeTotal / (jogadores * times);
+    printf("O peso medio de todos os atletas é de: %.2f kilos\n", pesoTotal);
+    printf("A idade media de todos os atletas é de: %.0f anos", pesoTotal);
+
+    return 0;
 }
