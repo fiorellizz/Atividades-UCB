@@ -1,3 +1,5 @@
+/*Faça um programa que leia vários números inteiros e apresente o fatorial de cada número. O algoritmo encerra quando se digita um número menor do que 1.*/
+
 #include <stdio.h>
 
 int main()
