@@ -22,4 +22,6 @@ int main(){
     printf("48\t\t|\tR$%.2f\t|\t24%%\t\t|\tR$%.2f\n", valorCarro + valorCarro * 0.24, (valorCarro + valorCarro * 0.24) / 48);
     printf("54\t\t|\tR$%.2f\t|\t27%%\t\t|\tR$%.2f\n", valorCarro + valorCarro * 0.27, (valorCarro + valorCarro * 0.27) / 54);
     printf("60\t\t|\tR$%.2f\t|\t30%%\t\t|\tR$%.2f\n", valorCarro + valorCarro * 0.30, (valorCarro + valorCarro * 0.30) / 60);
+
+    return 0;
 }
