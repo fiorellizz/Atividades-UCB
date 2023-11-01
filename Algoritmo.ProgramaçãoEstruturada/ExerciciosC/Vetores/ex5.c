@@ -10,13 +10,13 @@ int main(){
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-    int alunos, situacao;
+    int alunos;
     
     printf("Quantos alunos você vai calcular a média: ");
     scanf("%d", &alunos);
 	
 	float provas1[alunos], provas2[alunos], media[alunos];
-	char nome[alunos][50];
+	char nome[alunos][50], situacao[alunos][10];
 	
 	for(int i = 0; i < alunos; i++)
 	{
@@ -40,6 +40,6 @@ int main(){
     {
         printf("Média do(a) aluno(a) %s foi de %.0f\n", nome[i], media[i]);
     }
-    
+
 	return 0;
 }
