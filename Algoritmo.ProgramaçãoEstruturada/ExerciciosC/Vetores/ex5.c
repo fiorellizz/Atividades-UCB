@@ -6,21 +6,18 @@
 #include <stdlib.h>
 #include <conio.h>
 
-int main(){
-	
-	setlocale(LC_ALL, "Portuguese");
-	
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+
     int alunos;
-    
     printf("Quantos alunos você vai calcular a média: ");
     scanf("%d", &alunos);
-	
-	float provas1[alunos], provas2[alunos], media[alunos];
-	char nome[alunos][50], situacao[alunos][10];
-	
-	for(int i = 0; i < alunos; i++)
-	{
-		printf("Digite o nome do %d° aluno: ", i + 1);
+
+    float provas1[alunos], provas2[alunos], media[alunos];
+    char nome[alunos][50], situacao[alunos][10];
+
+    for (int i = 0; i < alunos; i++) {
+        printf("Digite o nome do %d° aluno: ", i + 1);
         scanf("%s", nome[i]);
 
         printf("Digite a nota da prova 1 do aluno: ");
@@ -28,18 +25,20 @@ int main(){
 
         printf("Digite a nota da prova 2 do aluno: ");
         scanf("%f", &provas2[i]);
-        
-	}
-	
-	for(int i = 0; i < alunos; i++)
-    {
-        media[i] = (provas1[i] + provas2[i]) / 2;
-	}
-
-    for (int i = 0; i < alunos; i++)
-    {
-        printf("Média do(a) aluno(a) %s foi de %.0f\n", nome[i], media[i]);
     }
 
-	return 0;
+    for (int i = 0; i < alunos; i++) {
+        media[i] = (provas1[i] + provas2[i]) / 2;
+        if (media[i] < 7) {
+            strcpy(situacao[i], "Reprovado");
+        } else {
+            strcpy(situacao[i], "Aprovado");
+        }
+    }
+
+    for (int i = 0; i < alunos; i++) {
+        printf("Média do(a) aluno(a) %s foi de %.0f e está %s.\n", nome[i], media[i], situacao[i]);
+    }
+
+    return 0;
 }
