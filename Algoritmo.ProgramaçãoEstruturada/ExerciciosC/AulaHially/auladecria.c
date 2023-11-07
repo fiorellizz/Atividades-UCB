@@ -5,7 +5,7 @@ typedef struct
 {
     char nome[20];
     int idade, id;
-} Aluno;
+}Aluno;
 
 void cadastrar(Aluno a[], int indice)
 {
@@ -37,26 +37,30 @@ void listarAlunos(Aluno a[], int indice)
     }
 }
 
-void buscar(Aluno a[], int indice, int id){
-    int idbusca;
-    printf("Digite o id do aluno que quer buscar: ");
-    fflush(stdin);
-    scanf("%d", &idbusca);
+void buscar(Aluno a[], int indice, int idbusca)
+{
+    int encontrado;
     for (int i = 0; i < indice; i++)
     {
         if (idbusca == a[i].id)
         {
-            printf("DEU BOM!");
+            printf("\nNome: %s", a[i].nome);
+            printf("Idade: %d\n", a[i].idade);
+            encontrado++;
         }
     }
-    
+
+    if (encontrado == 0)
+    {
+        printf("Registro não escontrado!");
+    }
 }
 
 int main()
 {
 
     Aluno a[MAX];
-    int count = 0, opcao;
+    int count = 0, opcao, idbusca;
 
     do
     {
@@ -84,15 +88,23 @@ int main()
                 // opcao = 0;
             }
             break;
+
         case 2:
             listarAlunos(a, count);
             break;
+
         case 3:
-            buscar(a, count, id);
+            printf("Digite o id do aluno que quer buscar: ");
+            fflush(stdin);
+            scanf("%d", &idbusca);
+            buscar(a, count, idbusca);
             break;
+
         default:
             break;
         }
 
     } while (opcao != 0);
+
+    return 0;
 }
