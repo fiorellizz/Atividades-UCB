@@ -28,6 +28,7 @@ void listarAlunos(Aluno a[], int indice){
         for (int i = 0; i < indice; i++){
             printf("Nome: %s", a[i].nome);
             printf("Idade: %d\n", a[i].idade);
+            printf("Id: %d\n", a[i].id);
             printf("\n");
         }
     }
@@ -89,6 +90,9 @@ int main(){
             break;
 
         default:
+            if (opcao != 0){
+                printf("Valor inválido!\n");
+            }
             break;
         }
 
