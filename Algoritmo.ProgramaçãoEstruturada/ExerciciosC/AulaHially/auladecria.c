@@ -3,12 +3,14 @@
 #include <stdlib.h>
 #define MAX 3
 
-typedef struct{
+typedef struct
+{
     char nome[20];
     int idade, id;
-}Aluno;
+} Aluno;
 
-void cadastrar(Aluno a[], int indice){
+void cadastrar(Aluno a[], int indice)
+{
     printf("Digite o nome do aluno: ");
     fflush(stdin);
     fgets(a[indice].nome, sizeof(a[indice].nome), stdin);
@@ -21,11 +23,16 @@ void cadastrar(Aluno a[], int indice){
     scanf("%d", &a[indice].id);
 }
 
-void listarAlunos(Aluno a[], int indice){
-    if (indice == 0){
-        printf("Não existem registros na lista!");
-    }else{
-        for (int i = 0; i < indice; i++){
+void listarAlunos(Aluno a[], int indice)
+{
+    if (indice == 0)
+    {
+        printf("Não existem registros na lista!\n\n");
+    }
+    else
+    {
+        for (int i = 0; i < indice; i++)
+        {
             printf("Nome: %s", a[i].nome);
             printf("Idade: %d\n", a[i].idade);
             printf("Id: %d\n", a[i].id);
@@ -34,24 +41,31 @@ void listarAlunos(Aluno a[], int indice){
     }
 }
 
-void buscar(Aluno a[], int indice, int idbusca){
+void buscar(Aluno a[], int indice, int idbusca)
+{
     int encontrado = 0;
-    for (int i = 0; i < indice; i++){
-        if (idbusca == a[i].id){
+    for (int i = 0; i < indice; i++)
+    {
+        if (idbusca == a[i].id)
+        {
             printf("\nNome: %s", a[i].nome);
             printf("Idade: %d\n", a[i].idade);
+            printf("\n");
             encontrado++;
         }
     }
-    if (encontrado == 0){
-        printf("Registro não escontrado!\n");
+    if (encontrado == 0)
+    {
+        printf("\nRegistro não escontrado!\n\n");
     }
 }
 
-int main(){
+int main()
+{
     Aluno a[MAX];
     int count = 0, opcao, idbusca;
-    do{
+    do
+    {
         printf("Digite 1 para cadastrar");
         printf("\nDigite 2 para listar");
         printf("\nDigite 3 para buscar");
@@ -60,18 +74,22 @@ int main(){
         scanf("%d", &opcao);
         system("cls");
 
-        switch (opcao){
+        switch (opcao)
+        {
         case 1:
-            if (count < MAX){
+            if (count < MAX)
+            {
                 cadastrar(a, count);
                 count++;
                 printf("Cadastro realizado com sucesso!\n");
-                printf("Digite qualquer tecla para continuar...");
+                printf("Digite qualquer tecla para voltar ao menu...");
                 getch();
                 system("cls");
-            }else{
-                printf("Não foi possivel realizar o cadastro!\n");
-                printf("Digite qualquer tecla para continuar...");
+            }
+            else
+            {
+                printf("Limite de cadastros atingidos!\n\n");
+                printf("Digite qualquer tecla para voltar ao menu...");
                 getch();
                 system("cls");
                 // opcao = 0;
@@ -90,7 +108,8 @@ int main(){
             break;
 
         default:
-            if (opcao != 0){
+            if (opcao != 0)
+            {
                 printf("Valor inválido!\n");
             }
             break;
