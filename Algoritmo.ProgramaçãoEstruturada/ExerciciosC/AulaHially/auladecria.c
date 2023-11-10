@@ -7,9 +7,9 @@ typedef struct
 {
     char nome[20];
     int quantidade, lote, id, status;
-} Aluno;
+} Produto;
 
-void cadastrar(Aluno a[], int indice)
+void cadastrar(Produto a[], int indice)
 {   
     a[indice].id = indice + 1; //id automatico de 1 até o limite de cadastros
     a[indice].status = 1;
@@ -26,7 +26,7 @@ void cadastrar(Aluno a[], int indice)
     scanf("%d", &a[indice].lote);
 }
 
-void listarProdutos(Aluno a[], int indice)
+void listarProdutos(Produto a[], int indice)
 {
     if (indice == 0)
     {
@@ -36,13 +36,12 @@ void listarProdutos(Aluno a[], int indice)
     {
         for (int i = 0; i < indice; i++)
         {
-            printf("Nome: %s \t|\t Quantidade: %d \t|\t Lote: %d \t|\t Id: %d\n", a[i].nome, a[i].quantidade, a[i].lote, a[i].id);
-            printf("\n");
+            printf("Nome: %s \t|\t Quantidade: %d \t|\t Lote: %d \t|\t Id: %d\n\n", a[i].nome, a[i].quantidade, a[i].lote, a[i].id);
         }
     }
 }
 
-void buscar(Aluno a[], int indice, int idbusca)
+void buscar(Produto a[], int indice, int idbusca)
 {
     int encontrado = 0;
     for (int i = 0; i < indice; i++)
@@ -62,7 +61,7 @@ void buscar(Aluno a[], int indice, int idbusca)
 
 int main()
 {
-    Aluno a[MAX];
+    Produto a[MAX];
     int count = 0, opcao, idbusca;
     do
     {
