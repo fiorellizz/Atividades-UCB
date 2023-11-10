@@ -6,36 +6,37 @@
 typedef struct
 {
     char nome[20];
-    int idade, id;
+    int quantidade, lote, id, status;
 } Aluno;
 
 void cadastrar(Aluno a[], int indice)
-{
-    printf("Digite o nome do aluno: ");
+{   
+    a[indice].id = indice + 1; //id automatico de 1 até o limite de cadastros
+    a[indice].status = 1;
+    printf("Digite o nome do produto: ");
     fflush(stdin);
     fgets(a[indice].nome, sizeof(a[indice].nome), stdin);
     fflush(stdin);
-    printf("Digite a idade do aluno: ");
+    printf("Digite a quantidade de produto que serão armazenadas no estoque: ");
     fflush(stdin);
-    scanf("%d", &a[indice].idade);
-    printf("Digite o id do aluno: ");
+    scanf("%d", &a[indice].quantidade);
     fflush(stdin);
-    scanf("%d", &a[indice].id);
+    printf("Digite o lote do produto que será armazenada no estoque: ");
+    fflush(stdin);
+    scanf("%d", &a[indice].lote);
 }
 
-void listarAlunos(Aluno a[], int indice)
+void listarProdutos(Aluno a[], int indice)
 {
     if (indice == 0)
     {
-        printf("Não existem registros na lista!\n\n");
+        printf("Não existe produtos no estoque!\n\n");
     }
     else
     {
         for (int i = 0; i < indice; i++)
         {
-            printf("Nome: %s", a[i].nome);
-            printf("Idade: %d\n", a[i].idade);
-            printf("Id: %d\n", a[i].id);
+            printf("Nome: %s \t|\t Quantidade: %d \t|\t Lote: %d \t|\t Id: %d\n", a[i].nome, a[i].quantidade, a[i].lote, a[i].id);
             printf("\n");
         }
     }
@@ -48,15 +49,14 @@ void buscar(Aluno a[], int indice, int idbusca)
     {
         if (idbusca == a[i].id)
         {
-            printf("\nNome: %s", a[i].nome);
-            printf("Idade: %d\n", a[i].idade);
+            printf("Nome: %s \t|\t Quantidade: %d \t|\t Lote: %d \t|\t Id: %d\n", a[i].nome, a[i].quantidade, a[i].lote, a[i].id);
             printf("\n");
             encontrado++;
         }
     }
     if (encontrado == 0)
     {
-        printf("\nRegistro não escontrado!\n\n");
+        printf("\nNenhum produto encontrado no estoque!\n\n");
     }
 }
 
@@ -97,11 +97,11 @@ int main()
             break;
 
         case 2:
-            listarAlunos(a, count);
+            listarProdutos(a, count);
             break;
 
         case 3:
-            printf("Digite o id do aluno que quer buscar: ");
+            printf("Digite o id do produto que quer buscar: ");
             fflush(stdin);
             scanf("%d", &idbusca);
             buscar(a, count, idbusca);
