@@ -127,6 +127,7 @@ void excluir(Produto a[], int indice, int idbusca){
         }
     }
     printf("Registro nao encontrado!");
+
 }
 
 int main()
