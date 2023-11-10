@@ -201,6 +201,7 @@ int main()
                     printf("Exclusao Cancelada!");
                     printf("\n--------------------------\n");
                 }
+                //count = idbusca;
             break;
 
         default:
