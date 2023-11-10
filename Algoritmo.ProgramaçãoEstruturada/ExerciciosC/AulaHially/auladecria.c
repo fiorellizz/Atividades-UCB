@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <string.h>
 #define MAX 3
 
 typedef struct
@@ -16,11 +17,12 @@ void cadastrar(Produto a[], int indice)
     printf("Digite o nome do produto: ");
     fflush(stdin);
     fgets(a[indice].nome, sizeof(a[indice].nome), stdin);
-    fflush(stdin);
+    a[indice].nome[strcspn(a[indice].nome, "\n")] = '\0';
+
     printf("Digite a quantidade de produto que serão armazenadas no estoque: ");
     fflush(stdin);
     scanf("%d", &a[indice].quantidade);
-    fflush(stdin);
+
     printf("Digite o lote do produto que será armazenada no estoque: ");
     fflush(stdin);
     scanf("%d", &a[indice].lote);
@@ -34,6 +36,7 @@ void listarProdutos(Produto a[], int indice)
     }
     else
     {
+        
         for (int i = 0; i < indice; i++)
         {
             printf("Nome: %s \t|\t Quantidade: %d \t|\t Lote: %d \t|\t Id: %d\n\n", a[i].nome, a[i].quantidade, a[i].lote, a[i].id);
