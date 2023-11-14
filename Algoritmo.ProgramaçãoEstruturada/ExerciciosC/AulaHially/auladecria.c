@@ -10,9 +10,10 @@ typedef struct
     int quantidade, lote, id, status;
 } Produto;
 
-void cadastrar(Produto a[], int indice)
+void cadastrar(Produto a[], int indice, int idaleatorio)
 {   
-    a[indice].id = indice + 1; //id automatico de 1 até o limite de cadastros
+    idaleatorio += MAX;
+    a[indice].id = indice + idaleatorio; //id automatico de 1 até o limite de cadastros
     a[indice].status = 1;
     printf("Digite o nome do produto: ");
     fflush(stdin);
@@ -133,7 +134,7 @@ void excluir(Produto a[], int indice, int idbusca){
 int main()
 {
     Produto a[MAX];
-    int count = 0, mudar, idbusca;
+    int count = 0, mudar, idbusca, idaleatorio = 0;
     char exclui;
 
     do
@@ -153,8 +154,9 @@ int main()
         case 1:
             if (count < MAX)
             {
-                cadastrar(a, count);
+                cadastrar(a, count, idaleatorio);
                 count++;
+                idaleatorio += 10;
                 printf("Cadastro realizado com sucesso!\n");
                 printf("Digite qualquer tecla para voltar ao menu...");
                 getch();
