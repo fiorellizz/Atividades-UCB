@@ -10,10 +10,8 @@ typedef struct
     int quantidade, lote, id, status;
 } Produto;
 
-void cadastrar(Produto a[], int indice, int idaleatorio)
-{   
-    idaleatorio += MAX;
-    a[indice].id = indice + idaleatorio; //id automatico de 1 até o limite de cadastros
+void cadastrar(Produto a[], int indice)
+{
     a[indice].status = 1;
     printf("Digite o nome do produto: ");
     fflush(stdin);
@@ -29,6 +27,24 @@ void cadastrar(Produto a[], int indice, int idaleatorio)
     scanf("%d", &a[indice].lote);
 }
 
+void gerarid(Produto a[])
+{
+    int verificar = 1;
+    a[0].id = 1;
+    
+    for (int i = 0; i < MAX + 1; i++)
+    {
+        if (verificar == a[i].id)
+        {
+            verificar++;
+        }
+        else
+        {
+            a[i].id = verificar;
+        }
+    }
+}
+
 void listarProdutos(Produto a[], int indice)
 {
     if (indice == 0)
@@ -37,7 +53,7 @@ void listarProdutos(Produto a[], int indice)
     }
     else
     {
-        
+
         for (int i = 0; i < indice; i++)
         {
             printf("Nome: %s \t|\t Quantidade: %d \t|\t Lote: %d \t|\t Id: %d\n\n", a[i].nome, a[i].quantidade, a[i].lote, a[i].id);
@@ -63,11 +79,13 @@ void buscar(Produto a[], int indice, int idbusca)
     }
 }
 
-void alterar(Produto a[], int indice, int idbusca){
+void alterar(Produto a[], int indice, int idbusca)
+{
     int mudar;
     for (int i = 0; i < indice; i++)
     {
-        if (idbusca == a[i].id){
+        if (idbusca == a[i].id)
+        {
             printf("\nID: %d", a[i].id);
             printf("\nNome: %s", a[i].nome);
             printf("\nQuantidade: %d", a[i].quantidade);
@@ -79,24 +97,33 @@ void alterar(Produto a[], int indice, int idbusca){
             fflush(stdin);
             scanf("%d", &mudar);
             fflush(stdin);
-            if (mudar == 1){
+            if (mudar == 1)
+            {
                 printf("Digite o novo nome: ");
                 fgets(a[i].nome, sizeof(a[i].nome), stdin);
                 a[indice].nome[strcspn(a[indice].nome, "\n")] = '\0';
                 fflush(stdin);
-            }else if(mudar == 2){
+            }
+            else if (mudar == 2)
+            {
                 printf("Digite a nova quantidade:");
                 scanf("%d", &a[i].quantidade);
                 fflush(stdin);
-            }else if(mudar == 3){
+            }
+            else if (mudar == 3)
+            {
                 printf("Digite o novo status (0 ou 1): ");
                 scanf("%d", &a[i].status);
                 fflush(stdin);
-            }else if(mudar == 4){
+            }
+            else if (mudar == 4)
+            {
                 printf("Digite o novo lote: ");
                 scanf("%d", &a[i].lote);
                 fflush(stdin);
-            }else if(mudar == 5){
+            }
+            else if (mudar == 5)
+            {
                 printf("Digite o novo nome: ");
                 fgets(a[i].nome, sizeof(a[i].nome), stdin);
                 a[indice].nome[strcspn(a[indice].nome, "\n")] = '\0';
@@ -107,20 +134,24 @@ void alterar(Produto a[], int indice, int idbusca){
                 printf("Digite o novo lote: ");
                 scanf("%d", &a[i].lote);
                 fflush(stdin);
-            }else{
+            }
+            else
+            {
                 printf("Opção invalida!");
             }
             return;
         }
-        
     }
-    
 }
 
-void excluir(Produto a[], int indice, int idbusca){
-    for(int i = 0; i < indice; i++){
-        if (idbusca == a[i].id){
-            for(int j = i; j < indice - 1; j++){
+void excluir(Produto a[], int indice, int idbusca)
+{
+    for (int i = 0; i < indice; i++)
+    {
+        if (idbusca == a[i].id)
+        {
+            for (int j = i; j < indice - 1; j++)
+            {
                 a[j] = a[j + 1];
             }
             printf("Excluido com sucesso!");
@@ -128,13 +159,12 @@ void excluir(Produto a[], int indice, int idbusca){
         }
     }
     printf("Registro nao encontrado!");
-
 }
 
 int main()
 {
     Produto a[MAX];
-    int count = 0, mudar, idbusca, idaleatorio = 0;
+    int count = 0, mudar, idbusca, excluidos = 0;
     char exclui;
 
     do
@@ -154,9 +184,9 @@ int main()
         case 1:
             if (count < MAX)
             {
-                cadastrar(a, count, idaleatorio);
+                cadastrar(a, count);
+                gerarid(a);
                 count++;
-                idaleatorio += 10;
                 printf("Cadastro realizado com sucesso!\n");
                 printf("Digite qualquer tecla para voltar ao menu...");
                 getch();
@@ -188,22 +218,26 @@ int main()
             scanf("%d", &idbusca);
             alterar(a, count, idbusca);
             break;
-        
+
         case 5:
             printf("Digite o id que deseja excluir: ");
             scanf("%d", &idbusca);
             fflush(stdin);
             printf("Deseja realmente excluir (s / n) ?\n");
             scanf("%c", &exclui);
-                if (exclui == 's'){
-                    excluir(a, count, idbusca);
-                    count--;
-                    printf("\n--------------------------\n");
-                }else{
-                    printf("Exclusao Cancelada!");
-                    printf("\n--------------------------\n");
-                }
-                //count = idbusca;
+            if (exclui == 's')
+            {
+                excluir(a, count, idbusca);
+                count--;
+                excluidos++;
+                printf("\n--------------------------\n");
+            }
+            else
+            {
+                printf("Exclusao Cancelada!");
+                printf("\n--------------------------\n");
+            }
+            // count = idbusca;
             break;
 
         default:
