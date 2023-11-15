@@ -1,3 +1,5 @@
+/*Crie uma estrutura representando um aluno de uma disciplina. Essa estrutura deve conter o número de matrícula do aluno, seu nome e as notas de três provas. Defina também um tipo para esta estrutura. Agora, escreva um programa que leia os dados de cinco alunos e os armazena nessa estrutura. Em seguida, exiba o nome e as notas do aluno que possui a maior média geral dentre os cinco.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,14 +30,16 @@ int main()
         printf("Informe a matricula do do %d° aluno: ", i + 1);
         scanf("%d", &alunos[i].matricula);
         
-        printf("Digite a %d nota: ", i + 1);
+        printf("Digite a nota 1: ");
         scanf("%f", &alunos[i].nota1);
 
-        printf("Digite a %d nota: ", i + 2);
+        printf("Digite a nota 2: ");
         scanf("%f", &alunos[i].nota2);
 
-        printf("Digite a %d nota: ", i + 3);
+        printf("Digite a nota 3: ");
         scanf("%f", &alunos[i].nota3);
+
+        printf("\n");
 
         alunos[i].media = (alunos[i].nota1 + alunos[i].nota2 + alunos[i].nota3) / 3;
 
@@ -47,7 +51,8 @@ int main()
         
     }
 
-    printf("Aluno com maior media %s, com notas %d %d %d e media %f", alunos[y].nome, alunos[y].nota1, alunos[y].nota2, alunos[y].nota3, alunos[y].media);
+    printf("\n");
+    printf("Aluno com maior media: %s, com notas %.2f %.2f %.2f e media %.2f", alunos[y].nome, alunos[y].nota1, alunos[y].nota2, alunos[y].nota3, alunos[y].media);
     
 
     return 0;
