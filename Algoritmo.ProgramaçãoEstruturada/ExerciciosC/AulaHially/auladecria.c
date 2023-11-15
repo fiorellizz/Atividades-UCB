@@ -27,20 +27,20 @@ void cadastrar(Produto a[], int indice)
     scanf("%d", &a[indice].lote);
 }
 
-void gerarid(Produto a[])
+void gerarid(Produto a[], int indice)
 {
     int verificar = 1;
-    a[0].id = 1;
+    a[indice].id = 1;
     
     for (int i = 0; i < MAX + 1; i++)
     {
-        if (verificar == a[i].id)
+        if (verificar == a[indice].id)
         {
             verificar++;
         }
         else
         {
-            a[i].id = verificar;
+            a[indice].id = verificar;
         }
     }
 }
@@ -185,7 +185,7 @@ int main()
             if (count < MAX)
             {
                 cadastrar(a, count);
-                gerarid(a);
+                gerarid(a, count);
                 count++;
                 printf("Cadastro realizado com sucesso!\n");
                 printf("Digite qualquer tecla para voltar ao menu...");
