@@ -13,27 +13,25 @@ typedef struct
 void cadastrar(Produto a[], int indice)
 {
     a[indice].status = 1;
+    a[indice].id = indice + 1;
     printf("Digite o nome do produto: ");
     fflush(stdin);
     fgets(a[indice].nome, sizeof(a[indice].nome), stdin);
     a[indice].nome[strcspn(a[indice].nome, "\n")] = '\0';
-
     printf("Digite a quantidade do produto: ");
     fflush(stdin);
     scanf("%d", &a[indice].quantidade);
-
     printf("Digite o lote do produto: ");
     fflush(stdin);
     scanf("%d", &a[indice].lote);
 }
 
-void gerarid(Produto a[], int indice)
+/*void gerarid(Produto a[], int indice)
 {
     int verificar = 1;
     a[indice].id = 1;
-    
-    for (int i = 0; i < MAX + 1; i++)
-    {
+
+
         if (verificar == a[indice].id)
         {
             verificar++;
@@ -42,21 +40,86 @@ void gerarid(Produto a[], int indice)
         {
             a[indice].id = verificar;
         }
+
+}*/
+
+void listarTodos(Produto a[], int indice)
+{
+
+    if (indice == 0)
+    {
+        printf("\nNenhum registro encontrado!");
+    }
+    else
+    {
+        for (int i = 0; i < indice; i++)
+        {
+            printf("\nID: %d", a[i].id);
+            printf("\nNome: %s", a[i].nome);
+            printf("\nIdade: %d", a[i].quantidade);
+            printf("\nLote: %d", a[i].lote);
+            if (a[i].status == 1)
+            {
+                printf("\nStatus: Ativado\n");
+            }
+            else
+            {
+                printf("\nStatus: Desativado\n");
+            }
+            printf("\n");
+        }
     }
 }
 
 void listarProdutos(Produto a[], int indice)
 {
+    int escolha;
+
     if (indice == 0)
     {
-        printf("Não existe produtos no estoque!\n\n");
+        printf("\nNenhum registro encontrado!");
     }
     else
     {
-
-        for (int i = 0; i < indice; i++)
+        printf("1 - Ativados \n2 - Desativados \n3 - Todos \n");
+        fflush(stdin);
+        printf("Digite opção desejada: ");
+        fflush(stdin);
+        scanf("%d", &escolha);
+        fflush(stdin);
+        switch (escolha)
         {
-            printf("Nome: %s \t|\t Quantidade: %d \t|\t Lote: %d \t|\t Id: %d\n\n", a[i].nome, a[i].quantidade, a[i].lote, a[i].id);
+        case 1:
+            for (int i = 0; i < indice; i++)
+            {
+                if (a[i].status == 1)
+                {
+                    printf("\nID: %d", a[i].id);
+                    printf("\nNome: %s", a[i].nome);
+                    printf("\nQuantidade: %d", a[i].quantidade);
+                    printf("\nLote: %d", a[i].lote);
+                    printf("\nStatus: %d\n", a[i].status);
+                    printf("\n");
+                }
+            }
+            break;
+        case 2:
+            for (int i = 0; i < indice; i++)
+            {
+                if (a[i].status == 0)
+                {
+                    printf("\nID: %d", a[i].id);
+                    printf("\nNome: %s", a[i].nome);
+                    printf("\nQuantidade: %d", a[i].quantidade);
+                    printf("\nLote: %d", a[i].lote);
+                    printf("\nStatus: %d\n", a[i].status);
+                    printf("\n");
+                }
+            }
+            break;
+        case 3:
+            listarTodos(a, indice);
+            break;
         }
     }
 }
@@ -68,7 +131,10 @@ void buscar(Produto a[], int indice, int idbusca)
     {
         if (idbusca == a[i].id)
         {
-            printf("Nome: %s \t|\t Quantidade: %d \t|\t Lote: %d \t|\t Id: %d\n", a[i].nome, a[i].quantidade, a[i].lote, a[i].id);
+            printf("\nID: %d", a[i].id);
+            printf("\nNome: %s", a[i].nome);
+            printf("\nIdade: %d", a[i].quantidade);
+            printf("\nLote: %d\n", a[i].lote);
             printf("\n");
             encontrado++;
         }
@@ -86,12 +152,20 @@ void alterar(Produto a[], int indice, int idbusca)
     {
         if (idbusca == a[i].id)
         {
-            printf("\nID: %d", a[i].id);
+            printf("\nId: %d", a[i].id);
             printf("\nNome: %s", a[i].nome);
             printf("\nQuantidade: %d", a[i].quantidade);
             printf("\nLote: %d", a[i].lote);
+            if (a[i].status == 1)
+            {
+                printf("\nStatus: Ativado");
+            }
+            else
+            {
+                printf("\nStatus: Desativado");
+            }
             printf("\n\n");
-            printf("1 - Alterar nome \n2 - Alterar quantidade \n3 - Alterar status \n4 - Alterar lote \n5 - Alterar todos \n");
+            printf("1 - Alterar Nome \n2 - Alterar Quantidade \n3 - Alterar Status \n4 - Alterar Lote \n5 - Alterar Todos \n");
             fflush(stdin);
             printf("Digite a opção desejada: ");
             fflush(stdin);
@@ -137,8 +211,11 @@ void alterar(Produto a[], int indice, int idbusca)
             }
             else
             {
-                printf("Opção invalida!");
+                printf("Opção invalida!\n");
             }
+            printf("Digite qualquer tecla para voltar ao menu...");
+            getch();
+            system("cls");
             return;
         }
     }
@@ -154,18 +231,21 @@ void excluir(Produto a[], int indice, int idbusca)
             {
                 a[j] = a[j + 1];
             }
-            printf("Excluido com sucesso!");
+            printf("\nExcluido com sucesso!\n");
+            printf("Digite qualquer tecla para voltar ao menu...");
+            getch();
+            system("cls");
             return;
         }
     }
-    printf("Registro nao encontrado!");
+    printf("Registro não encontrado!\n");
 }
 
 int main()
 {
     Produto a[MAX];
-    int count = 0, mudar, idbusca, excluidos = 0;
-    char exclui;
+    int count = 0, mudar, idbusca;
+    char excluiDados, alterarDados;
 
     do
     {
@@ -185,7 +265,7 @@ int main()
             if (count < MAX)
             {
                 cadastrar(a, count);
-                gerarid(a, count);
+                // gerarid(a, count);
                 count++;
                 printf("Cadastro realizado com sucesso!\n");
                 printf("Digite qualquer tecla para voltar ao menu...");
@@ -204,6 +284,9 @@ int main()
 
         case 2:
             listarProdutos(a, count);
+            printf("Digite qualquer tecla para voltar ao menu...");
+            getch();
+            system("cls");
             break;
 
         case 3:
@@ -214,28 +297,42 @@ int main()
             break;
 
         case 4:
+            listarTodos(a, count);
             printf("Digite o id que deseja alterar: ");
+            fflush(stdin);
             scanf("%d", &idbusca);
-            alterar(a, count, idbusca);
+            printf("Deseja realmente alterar (s / n)?\n");
+            fflush(stdin);
+            scanf("%c", &alterarDados);
+            system("cls");
+            if (alterarDados == 's')
+            {
+                alterar(a, count, idbusca);
+            }
+            else
+            {
+                printf("Alteração Cancelada!");
+            }
+            
+            
             break;
 
         case 5:
+            listarTodos(a, count);
             printf("Digite o id que deseja excluir: ");
-            scanf("%d", &idbusca);
             fflush(stdin);
-            printf("Deseja realmente excluir (s / n) ?\n");
-            scanf("%c", &exclui);
-            if (exclui == 's')
+            scanf("%d", &idbusca);
+            printf("Deseja realmente excluir (s / n)?\n");
+            fflush(stdin);
+            scanf("%c", &excluiDados);
+            if (excluiDados == 's')
             {
                 excluir(a, count, idbusca);
                 count--;
-                excluidos++;
-                printf("\n--------------------------\n");
             }
             else
             {
                 printf("Exclusao Cancelada!");
-                printf("\n--------------------------\n");
             }
             // count = idbusca;
             break;
