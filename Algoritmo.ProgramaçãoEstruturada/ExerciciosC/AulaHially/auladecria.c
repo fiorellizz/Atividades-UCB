@@ -54,7 +54,7 @@ void listarTodos(Produto a[], int indice)
     {
         for (int i = 0; i < indice; i++)
         {
-            printf("\nID: %d", a[i].id);
+            printf("Id: %d", a[i].id);
             printf("\nNome: %s", a[i].nome);
             printf("\nIdade: %d", a[i].quantidade);
             printf("\nLote: %d", a[i].lote);
@@ -94,7 +94,7 @@ void listarProdutos(Produto a[], int indice)
             {
                 if (a[i].status == 1)
                 {
-                    printf("\nID: %d", a[i].id);
+                    printf("Id: %d", a[i].id);
                     printf("\nNome: %s", a[i].nome);
                     printf("\nQuantidade: %d", a[i].quantidade);
                     printf("\nLote: %d", a[i].lote);
@@ -108,7 +108,7 @@ void listarProdutos(Produto a[], int indice)
             {
                 if (a[i].status == 0)
                 {
-                    printf("\nID: %d", a[i].id);
+                    printf("Id: %d", a[i].id);
                     printf("\nNome: %s", a[i].nome);
                     printf("\nQuantidade: %d", a[i].quantidade);
                     printf("\nLote: %d", a[i].lote);
@@ -131,7 +131,7 @@ void buscar(Produto a[], int indice, int idbusca)
     {
         if (idbusca == a[i].id)
         {
-            printf("\nID: %d", a[i].id);
+            printf("Id: %d", a[i].id);
             printf("\nNome: %s", a[i].nome);
             printf("\nIdade: %d", a[i].quantidade);
             printf("\nLote: %d\n", a[i].lote);
@@ -152,7 +152,7 @@ void alterar(Produto a[], int indice, int idbusca)
     {
         if (idbusca == a[i].id)
         {
-            printf("\nId: %d", a[i].id);
+            printf("Id: %d", a[i].id);
             printf("\nNome: %s", a[i].nome);
             printf("\nQuantidade: %d", a[i].quantidade);
             printf("\nLote: %d", a[i].lote);
