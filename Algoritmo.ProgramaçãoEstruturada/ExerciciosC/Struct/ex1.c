@@ -45,7 +45,6 @@ int main()
 
         if (alunos[i].media > maior)
         {
-            maior = alunos[i].media;
             y = i;
         }
         
