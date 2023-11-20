@@ -10,6 +10,12 @@ typedef struct
     int quantidade, lote, id, status;
 } Produto;
 
+typedef struct
+{
+    char usuario[50], senha[50], bancoUsuario[50], bancoSenha[50];
+} Usuario;
+
+
 void cadastrar(Produto a[], int indice)
 {
     a[indice].status = 1;
@@ -241,11 +247,54 @@ void excluir(Produto a[], int indice, int idbusca)
     printf("Registro não encontrado!\n");
 }
 
+void entrarConta(Usuario b[], int indice){
+
+}
+
+void criarConta(Usuario b[], int indice){
+    printf("Digite um nome de usuario para sua conta: ");
+    fflush(stdin);
+    fgets(b[indice].bancoUsuario, sizeof(b[indice].bancoUsuario), stdin);
+    b[indice].bancoUsuario[strcspn(b[indice].bancoUsuario, "\n")] = '\0';
+    printf("Digite uma senha para sua conta: ");
+    fflush(stdin);
+    scanf("%d", &b[indice].bancoSenha);
+}
+
 int main()
 {
     Produto a[MAX];
-    int count = 0, mudar, idbusca;
+    Usuario b[MAX];
+    int count = 0, mudar, idbusca, login = 0, conta;
     char excluiDados, alterarDados;
+
+    printf("BEM VINDO AO PAINEL DE CONTROLE DE ESTOQUE!\n");
+    printf("Para ter acesso ao painel entre na sua conta ou crie uma!\n\n");
+        
+    do
+    {
+        printf("[1] Entrar");
+        printf("\n[2] Criar");
+        printf("\nDigite a opção escolhida: ");
+        fflush(stdin);
+        scanf("%d", &conta);
+
+        if (conta == 1)
+        {
+            entrarConta(b, count);
+        } else if (conta = 2)
+        {
+            criarConta(b, count);
+            printf("Conta criada com sucesso!\n");
+            printf("Digite qualquer tecla para voltar ao menu...");
+            getch();
+            system("cls");
+        }
+        
+        
+
+    } while (login == 0);
+        
 
     do
     {
