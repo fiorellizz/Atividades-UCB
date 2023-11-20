@@ -247,8 +247,26 @@ void excluir(Produto a[], int indice, int idbusca)
     printf("Registro não encontrado!\n");
 }
 
-void entrarConta(Usuario b[], int indice){
+void entrarConta(Usuario b[], int indice, int login){
+    printf("Digite seu usuario: ");
+    fflush(stdin);
+    fgets(b[indice].usuario, sizeof(b[indice].usuario), stdin);
+    b[indice].usuario[strcspn(b[indice].usuario, "\n")] = '\0';
 
+    printf("Digite sua senha: ");
+    fflush(stdin);
+    fgets(b[indice].senha, sizeof(b[indice].senha), stdin);
+    b[indice].senha[strcspn(b[indice].senha, "\n")] = '\0';
+
+    for (int i = 0; i < indice; i++)
+    {
+        if (b[indice].usuario == b[indice].bancoUsuario && b[indice].senha == b[indice].bancoSenha)
+        {
+            login++;
+        }
+    }
+    
+    
 }
 
 void criarConta(Usuario b[], int indice){
@@ -256,20 +274,22 @@ void criarConta(Usuario b[], int indice){
     fflush(stdin);
     fgets(b[indice].bancoUsuario, sizeof(b[indice].bancoUsuario), stdin);
     b[indice].bancoUsuario[strcspn(b[indice].bancoUsuario, "\n")] = '\0';
+
     printf("Digite uma senha para sua conta: ");
     fflush(stdin);
-    scanf("%d", &b[indice].bancoSenha);
+    fgets(b[indice].bancoSenha, sizeof(b[indice].bancoSenha), stdin);
+    b[indice].bancoSenha[strcspn(b[indice].bancoSenha, "\n")] = '\0';
 }
 
 int main()
 {
     Produto a[MAX];
     Usuario b[MAX];
-    int count = 0, mudar, idbusca, login = 0, conta;
+    int count = 0, mudar, idbusca, login = 0, conta, acessos;
     char excluiDados, alterarDados;
 
     printf("BEM VINDO AO PAINEL DE CONTROLE DE ESTOQUE!\n");
-    printf("Para ter acesso ao painel entre na sua conta ou crie uma!\n\n");
+    printf("Para ter acesso ao painel ENTRE na sua conta ou CRIE uma!\n\n");
         
     do
     {
@@ -278,11 +298,12 @@ int main()
         printf("\nDigite a opção escolhida: ");
         fflush(stdin);
         scanf("%d", &conta);
+        system("cls");
 
         if (conta == 1)
         {
-            entrarConta(b, count);
-        } else if (conta = 2)
+            entrarConta(b, count, login);
+        } else if (conta == 2)
         {
             criarConta(b, count);
             printf("Conta criada com sucesso!\n");
