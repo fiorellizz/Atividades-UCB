@@ -40,20 +40,17 @@ int main()
 
         if (atletas[i].idade > velho)
         {
+            velho = atletas[i].idade;
             z = i;
-        } else {
-
         }
         if (atletas[i].altura > alto)
         {
+            alto = atletas[i].altura;
             x = i;
-        } else {
-
         }
         printf("\n");
     }
 
-    printf("\n");
     printf("O atleta com maior altura: %s, com %.2f de altura\n", atletas[x].nome, atletas[x].altura);
     printf("O atleta com maior idade: %s, com %d de idade\n", atletas[z].nome, atletas[z].idade);
     
