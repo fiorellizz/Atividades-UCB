@@ -1,4 +1,4 @@
-/*Crie um programa com uma estrutura para simular uma agenda de telefone celular, com até 2 registros. Nessa agenda deve constar o nome, sobrenome, número de telefone móvel, número de telefone fixo e e-mail. O programa deverá fazer a leitura e, após isso, mostrar os dados na tela.*/
+/*Crie um programa com uma estrutura para simular uma agenda de telefone celular, com até 100 registros. Nessa agenda deve constar o nome, sobrenome, número de telefone móvel, número de telefone fixo e e-mail. O programa deverá fazer a leitura e, após isso, mostrar os dados na tela.*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,9 +15,9 @@ typedef struct agenda FIORELLI;
 int main()
 {
 
-    FIORELLI agenda[2];
+    FIORELLI agenda[100];
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 100; i++)
     {
         printf("%d° nome: ", i + 1);
         fflush(stdin);
@@ -42,7 +42,7 @@ int main()
         printf("\n");
     }
         
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 100; i++)
         {
             printf("%d° nome: %s", i + 1, agenda[i].nome);
         
@@ -50,9 +50,9 @@ int main()
 
             printf("%d° numero movel: %d", i + 1, agenda[i].movel);
 
-            printf("%d° numero fixo: %d", i + 1, agenda[i].fixo);
+            printf("\n%d° numero fixo: %d", i + 1, agenda[i].fixo);
 
-            printf("%d° gmail: %s", i + 1, agenda[i].gmail);
+            printf("\n%d° gmail: %s", i + 1, agenda[i].gmail);
 
             printf("\n");
         }
