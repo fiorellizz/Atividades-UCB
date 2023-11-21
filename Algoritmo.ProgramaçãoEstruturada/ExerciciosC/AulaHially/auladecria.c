@@ -251,22 +251,16 @@ void entrarConta(Usuario b[], int indice, int login){
     printf("Digite seu usuario: ");
     fflush(stdin);
     fgets(b[indice].usuario, sizeof(b[indice].usuario), stdin);
-    b[indice].usuario[strcspn(b[indice].usuario, "\n")] = '\0';
 
     printf("Digite sua senha: ");
     fflush(stdin);
     fgets(b[indice].senha, sizeof(b[indice].senha), stdin);
-    b[indice].senha[strcspn(b[indice].senha, "\n")] = '\0';
 
-    for (int i = 0; i < indice; i++)
+    //https://wagnergaspar.com/como-comparar-duas-strings-com-a-funcao-strcmp-na-linguagem-de-programacao-c/
+    if (strcmp(b[indice].usuario, b[indice].bancoUsuario) == 0 && strcmp(b[indice].senha, b[indice].bancoSenha) == 0)
     {
-        //https://wagnergaspar.com/como-comparar-duas-strings-com-a-funcao-strcmp-na-linguagem-de-programacao-c/
-        if (b[indice].usuario == b[indice].bancoUsuario && b[indice].senha == b[indice].bancoSenha)
-        {
-            login++;
-        }
+        login++;
     }
-    
     
 }
 
@@ -274,19 +268,17 @@ void criarConta(Usuario b[], int indice){
     printf("Digite um nome de usuario para sua conta: ");
     fflush(stdin);
     fgets(b[indice].bancoUsuario, sizeof(b[indice].bancoUsuario), stdin);
-    b[indice].bancoUsuario[strcspn(b[indice].bancoUsuario, "\n")] = '\0';
 
     printf("Digite uma senha para sua conta: ");
     fflush(stdin);
     fgets(b[indice].bancoSenha, sizeof(b[indice].bancoSenha), stdin);
-    b[indice].bancoSenha[strcspn(b[indice].bancoSenha, "\n")] = '\0';
 }
 
 int main()
 {
     Produto a[MAX];
     Usuario b[MAX];
-    int count = 0, mudar, idbusca, login = 0, conta, acessos;
+    int count = 0, mudar, idbusca, login = 0, conta /*acessos*/;
     char excluiDados, alterarDados;
 
     printf("BEM VINDO AO PAINEL DE CONTROLE DE ESTOQUE!\n");
