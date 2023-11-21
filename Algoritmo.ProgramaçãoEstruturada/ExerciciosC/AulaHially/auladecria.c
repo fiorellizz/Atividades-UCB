@@ -260,6 +260,7 @@ void entrarConta(Usuario b[], int indice, int login){
 
     for (int i = 0; i < indice; i++)
     {
+        //https://wagnergaspar.com/como-comparar-duas-strings-com-a-funcao-strcmp-na-linguagem-de-programacao-c/
         if (b[indice].usuario == b[indice].bancoUsuario && b[indice].senha == b[indice].bancoSenha)
         {
             login++;
