@@ -15,7 +15,6 @@ typedef struct
     char usuario[50], senha[50], bancoUsuario[50], bancoSenha[50];
 } Usuario;
 
-
 void cadastrar(Produto a[], int indice)
 {
     a[indice].status = 1;
@@ -247,25 +246,33 @@ void excluir(Produto a[], int indice, int idbusca)
     printf("Registro não encontrado!\n");
 }
 
-void entrarConta(Usuario b[], int indice, int login){
+void entrarConta(Usuario b[], int indice, int login)
+{
+    int entrarContas = 0;
     printf("Digite seu usuario: ");
     fflush(stdin);
-    fgets(b[indice].usuario, sizeof(b[indice].usuario), stdin);
+    fgets(b[entrarContas].usuario, sizeof(b[entrarContas].usuario), stdin);
 
     printf("Digite sua senha: ");
     fflush(stdin);
-    fgets(b[indice].senha, sizeof(b[indice].senha), stdin);
+    fgets(b[entrarContas].senha, sizeof(b[entrarContas].senha), stdin);
 
-    //https://wagnergaspar.com/como-comparar-duas-strings-com-a-funcao-strcmp-na-linguagem-de-programacao-c/
+    // https://wagnergaspar.com/como-comparar-duas-strings-com-a-funcao-strcmp-na-linguagem-de-programacao-c/
 
-    if (strcmp(b[indice].usuario, b[indice].bancoUsuario) == 0 && strcmp(b[indice].senha, b[indice].bancoSenha) == 0)
+    for (int i = 0; i < indice; i++)
     {
-        login++;
+        for (int i = 0; i < entrarContas + 1; i++)
+        {
+            if (strcmp(b[entrarContas].usuario, b[indice].bancoUsuario) == 0 && strcmp(b[entrarContas].senha, b[indice].bancoSenha) == 0)
+            {
+                login++;
+            }
+        }
     }
-    
 }
 
-void criarConta(Usuario b[], int indice){
+void criarConta(Usuario b[], int indice)
+{
     printf("Digite um nome de usuario para sua conta: ");
     fflush(stdin);
     fgets(b[indice].bancoUsuario, sizeof(b[indice].bancoUsuario), stdin);
@@ -284,7 +291,7 @@ int main()
 
     printf("BEM VINDO AO PAINEL DE CONTROLE DE ESTOQUE!\n");
     printf("Para ter acesso ao painel ENTRE na sua conta ou CRIE uma!\n\n");
-        
+
     do
     {
         printf("[1] Entrar");
@@ -295,9 +302,21 @@ int main()
         system("cls");
 
         if (conta == 1)
-        {    
+        {
             entrarConta(b, count2, login);
-        } else if (conta == 2)
+            if (login == 0)
+            {
+                printf("Dados inválidos!\nFavor inserir novamente!\n");
+                printf("Digite qualquer tecla para voltar ao menu...");
+                getch();
+                system("cls");
+            }
+            else
+            {
+                system("cls");
+            }
+        }
+        else if (conta == 2)
         {
             if (count2 < MAX)
             {
@@ -307,16 +326,17 @@ int main()
                 printf("Digite qualquer tecla para voltar ao menu...");
                 getch();
                 system("cls");
-            } else {
+            }
+            else
+            {
                 printf("Limite de contas atingidos!\n\n");
                 printf("Digite qualquer tecla para voltar ao menu...");
                 getch();
                 system("cls");
             }
         }
-        
+
     } while (login == 0);
-        
 
     do
     {
@@ -384,8 +404,7 @@ int main()
             {
                 printf("Alteração Cancelada!");
             }
-            
-            
+
             break;
 
         case 5:
