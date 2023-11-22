@@ -10,7 +10,7 @@ pi = número do pi*/
 
 #include <stdio.h>
 
-float calcularRad( float ang, float pi){
+float calcularRad(float ang, float pi){
     float rad = (ang * pi)/180;
     return rad;
 }

@@ -257,6 +257,7 @@ void entrarConta(Usuario b[], int indice, int login){
     fgets(b[indice].senha, sizeof(b[indice].senha), stdin);
 
     //https://wagnergaspar.com/como-comparar-duas-strings-com-a-funcao-strcmp-na-linguagem-de-programacao-c/
+
     if (strcmp(b[indice].usuario, b[indice].bancoUsuario) == 0 && strcmp(b[indice].senha, b[indice].bancoSenha) == 0)
     {
         login++;
@@ -278,7 +279,7 @@ int main()
 {
     Produto a[MAX];
     Usuario b[MAX];
-    int count = 0, mudar, idbusca, login = 0, conta /*acessos*/;
+    int count = 0, mudar, idbusca, login = 0, count2 = 0, conta /*acessos*/;
     char excluiDados, alterarDados;
 
     printf("BEM VINDO AO PAINEL DE CONTROLE DE ESTOQUE!\n");
@@ -294,19 +295,26 @@ int main()
         system("cls");
 
         if (conta == 1)
-        {
-            entrarConta(b, count, login);
+        {    
+            entrarConta(b, count2, login);
         } else if (conta == 2)
         {
-            criarConta(b, count);
-            printf("Conta criada com sucesso!\n");
-            printf("Digite qualquer tecla para voltar ao menu...");
-            getch();
-            system("cls");
+            if (count2 < MAX)
+            {
+                criarConta(b, count2);
+                count2++;
+                printf("Conta criada com sucesso!\n");
+                printf("Digite qualquer tecla para voltar ao menu...");
+                getch();
+                system("cls");
+            } else {
+                printf("Limite de contas atingidos!\n\n");
+                printf("Digite qualquer tecla para voltar ao menu...");
+                getch();
+                system("cls");
+            }
         }
         
-        
-
     } while (login == 0);
         
 
