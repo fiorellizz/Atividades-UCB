@@ -4,24 +4,19 @@
 
 int main(){
 
-    int total = 10;
-    int valores[total];
+    int total = 10, valores[total];
 
-    for (int i = 0; i < total; i++)
-    {
+    for (int i = 0; i < total; i++){
         printf("Digite o valor %d do vetor: ", i + 1);
         scanf("%d", &valores[i]);
     }
 
     printf("\n");
 
-    for (int i = 0; i < total; i++)
-    {
+    for (int i = 0; i < total; i++){
         printf("%p", &valores[i]);
         printf("\n");
     }
-    
-    
 
     return 0;
 }

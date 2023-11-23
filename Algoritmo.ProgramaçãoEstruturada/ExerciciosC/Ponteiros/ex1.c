@@ -6,8 +6,7 @@ int main(){
 
     int var, var2;
 
-    if (&var > &var2)
-    {
+    if (&var > &var2){
         printf("O endereço de VAR é maior!");
     } else {
         printf("O endereço de VAR2 é maior!");
