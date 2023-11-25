@@ -2,14 +2,13 @@
 
 #include <stdio.h>
 
-int trocaValores(int vetor[], int *ponteiro, int tamanho)
+void trocaValores(int *ponteiro[], int tamanho)
 {
-
     printf("Digite os novos %d valores:\n", tamanho);
     for (int i = 0; i < tamanho; i++)
     {
         printf("%d° valor: ", i + 1);
-        scanf("%d", &ponteiro[i]);
+        scanf("%d", ponteiro[i]);
     }
 }
 
@@ -25,12 +24,12 @@ int main()
     printf("Digite 5 valores inteiros:\n");
     for (int i = 0; i < 5; i++)
     {
-        scanf("%d", ponteiro[i]);
+        scanf("%d", &vetor[i]);
     }
 
-    trocaValores(vetor, *ponteiro, tamanho);
+    trocaValores(ponteiro, tamanho);
 
-    printf("\nOs novos valores lido são:\n");
+    printf("\nOs novos valores lidos são:\n");
     for (int i = 0; i < 5; i++)
     {
         printf("%d\n", vetor[i]);
