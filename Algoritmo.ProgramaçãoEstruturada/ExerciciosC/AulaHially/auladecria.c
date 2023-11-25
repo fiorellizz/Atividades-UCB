@@ -31,23 +31,6 @@ void cadastrar(Produto a[], int indice)
     scanf("%d", &a[indice].lote);
 }
 
-/*void gerarid(Produto a[], int indice)
-{
-    int verificar = 1;
-    a[indice].id = 1;
-
-
-        if (verificar == a[indice].id)
-        {
-            verificar++;
-        }
-        else
-        {
-            a[indice].id = verificar;
-        }
-
-}*/
-
 void listarTodos(Produto a[], int indice)
 {
 
@@ -61,7 +44,7 @@ void listarTodos(Produto a[], int indice)
         {
             printf("Id: %d", a[i].id);
             printf("\nNome: %s", a[i].nome);
-            printf("\nIdade: %d", a[i].quantidade);
+            printf("\nQuantidade: %d", a[i].quantidade);
             printf("\nLote: %d", a[i].lote);
             if (a[i].status == 1)
             {
@@ -138,7 +121,7 @@ void buscar(Produto a[], int indice, int idbusca)
         {
             printf("Id: %d", a[i].id);
             printf("\nNome: %s", a[i].nome);
-            printf("\nIdade: %d", a[i].quantidade);
+            printf("\nQuantidade: %d", a[i].quantidade);
             printf("\nLote: %d\n", a[i].lote);
             printf("\n");
             encontrado++;
@@ -246,9 +229,10 @@ void excluir(Produto a[], int indice, int idbusca)
     printf("Registro não encontrado!\n");
 }
 
-void entrarConta(Usuario b[], int indice, int login)
+void entrarConta(Usuario b[], int totalContas, int *login)
 {
     int entrarContas = 0;
+
     printf("Digite seu usuario: ");
     fflush(stdin);
     fgets(b[entrarContas].usuario, sizeof(b[entrarContas].usuario), stdin);
@@ -257,36 +241,33 @@ void entrarConta(Usuario b[], int indice, int login)
     fflush(stdin);
     fgets(b[entrarContas].senha, sizeof(b[entrarContas].senha), stdin);
 
-    // https://wagnergaspar.com/como-comparar-duas-strings-com-a-funcao-strcmp-na-linguagem-de-programacao-c/
-
-    for (int i = 0; i < indice; i++)
+    for (int i = 0; i < totalContas; i++)
     {
-        for (int i = 0; i < entrarContas + 1; i++)
+        if (strcmp(b[entrarContas].usuario, b[i].bancoUsuario) == 0 && strcmp(b[entrarContas].senha, b[i].bancoSenha) == 0)
         {
-            if (strcmp(b[entrarContas].usuario, b[indice].bancoUsuario) == 0 && strcmp(b[entrarContas].senha, b[indice].bancoSenha) == 0)
-            {
-                login++;
-            }
+            *login = 1;
         }
     }
 }
 
-void criarConta(Usuario b[], int indice)
+void criarConta(Usuario b[], int *count2)
 {
     printf("Digite um nome de usuario para sua conta: ");
     fflush(stdin);
-    fgets(b[indice].bancoUsuario, sizeof(b[indice].bancoUsuario), stdin);
+    fgets(b[*count2].bancoUsuario, sizeof(b[*count2].bancoUsuario), stdin);
 
     printf("Digite uma senha para sua conta: ");
     fflush(stdin);
-    fgets(b[indice].bancoSenha, sizeof(b[indice].bancoSenha), stdin);
+    fgets(b[*count2].bancoSenha, sizeof(b[*count2].bancoSenha), stdin);
+
+    (*count2)++;
 }
 
 int main()
 {
     Produto a[MAX];
     Usuario b[MAX];
-    int count = 0, mudar, idbusca, login = 0, count2 = 0, conta /*acessos*/;
+    int count = 0, mudar, idbusca, login = 0, count2 = 0, conta;
     char excluiDados, alterarDados;
 
     printf("BEM VINDO AO PAINEL DE CONTROLE DE ESTOQUE!\n");
@@ -303,7 +284,7 @@ int main()
 
         if (conta == 1)
         {
-            entrarConta(b, count2, login);
+            entrarConta(b, count2, &login);
             if (login == 0)
             {
                 printf("Dados inválidos!\nFavor inserir novamente!\n");
@@ -320,7 +301,7 @@ int main()
         {
             if (count2 < MAX)
             {
-                criarConta(b, count2);
+                criarConta(b, &count2);
                 count2++;
                 printf("Conta criada com sucesso!\n");
                 printf("Digite qualquer tecla para voltar ao menu...");
@@ -356,7 +337,6 @@ int main()
             if (count < MAX)
             {
                 cadastrar(a, count);
-                // gerarid(a, count);
                 count++;
                 printf("Cadastro realizado com sucesso!\n");
                 printf("Digite qualquer tecla para voltar ao menu...");
@@ -369,7 +349,6 @@ int main()
                 printf("Digite qualquer tecla para voltar ao menu...");
                 getch();
                 system("cls");
-                // mudar = 0;
             }
             break;
 
@@ -424,7 +403,6 @@ int main()
             {
                 printf("Exclusao Cancelada!");
             }
-            // count = idbusca;
             break;
 
         default:
