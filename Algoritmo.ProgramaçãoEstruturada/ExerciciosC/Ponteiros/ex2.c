@@ -2,7 +2,8 @@
 
 #include <stdio.h>
 
-int main(){
+int main()
+{
 
     int total = 10, valores[total];
 
@@ -10,8 +11,7 @@ int main(){
         printf("Digite o valor %d do vetor: ", i + 1);
         scanf("%d", &valores[i]);
     }
-
-    printf("\n");
+        printf("\n");
 
     for (int i = 0; i < total; i++){
         printf("%p", &valores[i]);

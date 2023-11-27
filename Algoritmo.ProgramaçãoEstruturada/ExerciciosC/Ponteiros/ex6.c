@@ -22,9 +22,7 @@ void encontrarDoisMaiores(int conjunto[], int *maior1, int *maior2)
 
 int main()
 {
-    int conjunto[4];
-    int maior1, maior2;
-    int continuar;
+    int conjunto[4], maior1, maior2, continuar;
 
     do
     {
