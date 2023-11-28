@@ -17,8 +17,20 @@ typedef struct
 
 void cadastrar(Produto a[], int indice)
 {
-    a[indice].status = 1;
     a[indice].id = indice + 1;
+    for (int i = 0; i < indice; i++)
+    {
+        if (a[indice].id == a[i].id)
+        {
+            a[indice].id++;
+        } else
+        {
+            /* code */
+        }
+        
+    }
+    
+    a[indice].status = 1;
     printf("Digite o nome do produto: ");
     fflush(stdin);
     fgets(a[indice].nome, sizeof(a[indice].nome), stdin);
