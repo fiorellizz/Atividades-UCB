@@ -17,17 +17,15 @@ typedef struct
 
 void cadastrar(Produto a[], int indice)
 {
-    a[indice].id = indice + 1;
+    
+    a[indice].id = 1;
+
     for (int i = 0; i < indice; i++)
     {
         if (a[indice].id == a[i].id)
         {
             a[indice].id++;
-        } else
-        {
-            /* code */
-        }
-        
+        }    
     }
     
     a[indice].status = 1;
@@ -231,10 +229,6 @@ void excluir(Produto a[], int indice, int idbusca)
             {
                 a[j] = a[j + 1];
             }
-            printf("\nExcluido com sucesso!\n");
-            printf("Digite qualquer tecla para voltar ao menu...");
-            getch();
-            system("cls");
             return;
         }
     }
@@ -410,10 +404,17 @@ int main()
             {
                 excluir(a, count, idbusca);
                 count--;
+                printf("\nExcluido com sucesso!\n");
+                printf("Digite qualquer tecla para voltar ao menu...");
+                getch();
+                system("cls");
             }
             else
             {
-                printf("Exclusao Cancelada!");
+                printf("\nExclusao Cancelada!\n");
+                printf("Digite qualquer tecla para voltar ao menu...");
+                getch();
+                system("cls");
             }
             break;
 
