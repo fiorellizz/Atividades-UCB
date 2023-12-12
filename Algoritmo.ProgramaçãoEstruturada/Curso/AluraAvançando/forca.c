@@ -10,8 +10,9 @@ int chutesdados = 0;
 
 
 int letraexiste(char letra) {
+    int tamanho = strlen(palavrasecreta);
 
-    for(int j = 0; j < strlen(palavrasecreta); j++) {
+    for(int j = 0; j < tamanho; j++) {
         if(letra == palavrasecreta[j]) {
             return 1;
         }
@@ -38,7 +39,9 @@ int enforcou() {
 }
 
 int ganhou() {
-    for(int i = 0; i < strlen(palavrasecreta); i++) {
+    int tamanho = strlen(palavrasecreta);
+
+    for(int i = 0; i < tamanho; i++) {
         if(!jachutou(palavrasecreta[i])) {
             return 0;
         }
@@ -95,7 +98,9 @@ void desenhaforca() {
     printf("_|___           \n");
     printf("\n\n");
 
-    for(int i = 0; i < strlen(palavrasecreta); i++) {
+    int tamanho = strlen(palavrasecreta);
+
+    for(int i = 0; i < tamanho; i++) {
 
         if(jachutou(palavrasecreta[i])) {
             printf("%c ", palavrasecreta[i]);
@@ -113,7 +118,7 @@ void escolhepalavra() {
 
     f = fopen("palavras.txt", "r");
     if(f == 0) {
-        printf("Banco de dados de palavras não disponível\n\n");
+        printf("Banco de dados de palavras não disponível\n");
         exit(1);
     }
 
@@ -147,7 +152,7 @@ void adicionapalavra() {
 
         f = fopen("palavras.txt", "r+");
         if(f == 0) {
-            printf("Banco de dados de palavras não disponível\n\n");
+            printf("Banco de dados de palavras não disponível\n");
             exit(1);
         }
 
@@ -179,7 +184,7 @@ int main() {
     } while (!ganhou() && !enforcou());
 
     if(ganhou()) {
-        printf("\nParabéns, você ganhou!\n\n");
+        printf("\nParabéns, você ganhou!\n");
 
         printf("       ___________      \n");
         printf("      '._==_==_=_.'     \n");
@@ -194,7 +199,7 @@ int main() {
 
     } else {
         printf("\nPuxa, você foi enforcado!\n");
-        printf("A palavra era **%s**\n\n", palavrasecreta);
+        printf("A palavra era **%s**\n", palavrasecreta);
 
         printf("    _______________         \n");
         printf("   /               \\       \n"); 
@@ -215,4 +220,6 @@ int main() {
     }
 
     adicionapalavra();
+
+    return 0;
 }
