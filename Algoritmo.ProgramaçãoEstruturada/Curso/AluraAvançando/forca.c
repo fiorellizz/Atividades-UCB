@@ -7,38 +7,32 @@ void abertura(){
     printf("/****************/\n\n");
 }
 
-void novoChute(char chutes[], int* tentativas){
+void novoChute(char chutes[], int *tentativas){
     char chute;
     scanf(" %c", &chute);
     chutes[(*tentativas)] = chute;
     (*tentativas)++;
 }
 
-int main(){
-    char secreta[20];
+int jaFoiChutada(char letra, char chutes[26], int tentativas){
 
-    sprintf(secreta, "MATEMATICA");
+    int achou = 0;
 
-    int acertou = 0;
-    int enforcou = 0;
+    for (int j = 0; j < tentativas; j++){
+        if (chutes[j] == letra){
+            achou = 1;
+            break;
+        }
+    }
 
-    char chutes[26];
-    int tentativas = 0;
+    return achou;
+}
 
-    abertura();
+void desenha(char secreta[20], char chutes[], int tentativas){
+    for (int i = 0; i < strlen(secreta); i++){
 
-    do{
+            int achou = jaFoiChutada(secreta[i], chutes, tentativas);
 
-        for (int i = 0; i < strlen(secreta); i++){
-
-            int achou = 0;
-
-            for (int j = 0; j < tentativas; j++){
-                if (chutes[j] == secreta[i]){
-                    achou = 1;
-                    break;
-                }
-            }
             if (achou){
                 printf("%c ", secreta[i]);
             } else {
@@ -46,11 +40,31 @@ int main(){
             }
         }
         printf("\n");
-        
+}
+
+void escolhePalavra(secreta[20]){
+    sprintf(secreta, "MATEMATICA");
+}
+
+int main(){
+    char secreta[20];
+
+    int acertou = 0;
+    int enforcou = 0;
+
+    char chutes[26];
+    int tentativas = 0;
+
+    escolhePalavra(secreta);
+    abertura();
+
+    do{
+
+        desenha(secreta, chutes, tentativas);
+
         novoChute(chutes, &tentativas);
 
     } while (!acertou && !enforcou);
-    
 
     return 0;
 }
