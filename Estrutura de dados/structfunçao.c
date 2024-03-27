@@ -1,33 +1,23 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #define ERRO 0
 
-struct Pessoa criarPessoa(struct Pessoa);
-//void calculaIMC();
-
-struct Pessoa
-{
-    char nome[20];
-    int idade;
-    float altura, peso;
+struct Pessoa {
+char nome[20];
+int idade;
 };
-
-void main (){
-    struct Pessoa X = criarPessoa(Pessoa);
-    
+struct Pessoa criarPessoa() {
+struct Pessoa pessoa;
+strcpy(pessoa.nome, "João");
+pessoa.idade = 25;
+return pessoa;
 }
-
-criarPessoa(struct Pessoa){
-    printf("Nome: ");
-    gets(Pessoa.nome);
-    printf("Idade: ");
-    scanf("%d", &Pessoa.idade);
-    printf("Altura: ");
-    scanf("%f", &Pessoa.altura);
-    printf("Peso: ");
-    scanf("%f", &Pessoa.peso);
-
-    return Pessoa;
+int main() {
+struct Pessoa pessoa1 = criarPessoa();
+// Usar a struct retornada
+printf("Nome: %s\n", pessoa1.nome);
+printf("Idade: %d\n", pessoa1.idade);
+return 0;
 }
