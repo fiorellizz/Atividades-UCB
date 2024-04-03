@@ -1,0 +1,4 @@
+Arroz 2 5.50
+Feijão 3 3.00
+Carne 1 15.75
+Leite 4 2.50
