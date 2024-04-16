@@ -4,51 +4,45 @@
 
 #define ERRO 0
 
-soma(struct PRODUTOS, int total);
-
-struct produtos{
-
+struct produtos {
     char nome[20];
     int qtd;
     float valor;
 };
 
+void soma(struct produtos *P, int *total);
 
-int main(){
-
+int main() {
     system("cls");
 
-    struct produtos PRODUTOS[3];
+    struct produtos P[3];
     int total = 0;
-    
-    FILE *arquivo;
 
+    FILE *arquivo;
     arquivo = fopen("dados.txt", "r");
 
-    if(arquivo == NULL) {
+    if (arquivo == NULL) {
         printf("Erro ao abrir o arquivo!");
         exit(ERRO);
     }
 
     for (int i = 0; i < 3; i++)
-        fscanf(arquivo, "%s %d %f", PRODUTOS[i].nome, &PRODUTOS[i].qtd, &PRODUTOS[i].valor);
-    
+        fscanf(arquivo, "%s %d %f", P[i].nome, &P[i].qtd, &P[i].valor);
+
     for (int i = 0; i < 3; i++)
-        printf("%s %d %.2f\n", PRODUTOS[i].nome, PRODUTOS[i].qtd, PRODUTOS[i].valor);
-    
+        printf("%s %d %.2f\n", P[i].nome, P[i].qtd, P[i].valor);
+
     fclose(arquivo);
 
-    soma(&PRODUTOS, &total);
-    
+    soma(P, &total);
+
+    printf("Total: %d\n", total);
+
     return 0;
 }
 
-soma(struct *PRODUTOS, int *total) {
-    
-    
-    for (int i = 0; i < 3; i++)
-    {
-        &total += (*PRODUTOS[i]->soma);
+void soma(struct produtos *P, int *total) {
+    for (int i = 0; i < 3; i++) {
+        *total += P[i].valor;
     }
-    
-};
+}
