@@ -28,7 +28,7 @@ int main() {
         Total = Total + Quantidade * Preco;
     }
 
-printf("Preço: %.2f", Total);
+    printf("Preço: %.2f", Total);
 
     fclose(arquivo);
    return 0; 
