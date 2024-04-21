@@ -6,5 +6,7 @@ struct Aluno{
     float nota2;
 };
 
+#define ERRO 1
+
 void lerArquivo(FILE *arquivo, struct Aluno *X, int *i);
 void escreveArquivo(FILE *arquivo, struct Aluno *X, int *i);

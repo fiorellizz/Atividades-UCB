@@ -4,8 +4,6 @@
 #include "main.h"
 #include "funcoes.c"
 
-#define ERRO 1
-
 int main() {
 
     FILE *arquivo;
