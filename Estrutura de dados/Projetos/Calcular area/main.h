@@ -3,4 +3,6 @@ struct pontos{
     float y;
 };
 
-float areatriangulo(struct pontos v[], int tamanho);
+#define ERRO 1
+
+float areaTriangulo(struct pontos vertices[], int tamanho);
