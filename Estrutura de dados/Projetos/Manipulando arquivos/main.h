@@ -7,6 +7,8 @@ struct Aluno{
 };
 
 #define ERRO 1
+#define MAX 1024
 
+int contarLinhas(FILE *arquivo);
 void lerArquivo(FILE *arquivo, struct Aluno *X, int *i);
 void escreveArquivo(FILE *arquivo, struct Aluno *X, int *i);

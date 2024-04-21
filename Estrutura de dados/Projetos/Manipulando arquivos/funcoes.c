@@ -1,3 +1,13 @@
+int contarLinhas(FILE *arquivo) {
+    int quantidade = 0;
+    char linha[MAX];
+    while (fgets(linha, MAX, arquivo) != NULL){
+        quantidade++;
+    }
+    rewind(arquivo);
+    return quantidade;
+}
+
 void lerArquivo(FILE *arquivo, struct Aluno *X, int *i) {
     for ((*i) = 0; fscanf(arquivo, "%[^,],%[^,],%[^,],%f,%f", X[*i].nome, X[*i].telefone, X[*i].curso, &X[*i].nota1, &X[*i].nota2) != EOF; (*i)++);
 }
