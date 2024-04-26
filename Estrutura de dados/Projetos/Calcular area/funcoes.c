@@ -1,3 +1,7 @@
+void lerPontos(FILE *arquivo, int ponto, struct pontos *vertices) {
+    for (int i = 0; i < ponto; i++) fscanf(arquivo, "%f %f", &vertices[i].x, &vertices[i].y);
+}
+
 float areaTriangulo(struct pontos vertices[], int tamanho) {
     float area = 0;
 

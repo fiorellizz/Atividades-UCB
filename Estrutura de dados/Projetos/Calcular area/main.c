@@ -20,8 +20,8 @@ int main() {
     fscanf(arquivo, "%d", &ponto);
     struct pontos vertices[ponto];
     
-    for (int i = 0; i < ponto; i++) fscanf(arquivo, "%f %f", &vertices[i].x, &vertices[i].y);
-
+    lerPontos(arquivo, ponto, vertices);
+    
     float area = areaTriangulo(vertices, ponto);
 
     printf("A área do polígono é %.0f", area);
