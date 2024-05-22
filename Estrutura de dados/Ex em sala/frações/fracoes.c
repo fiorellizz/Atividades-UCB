@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "fracoes.h"
-
 Fracao criarFracao(int N, int D){
     Fracao X;
     X.Num = N;
