@@ -5,7 +5,7 @@
 
 typedef struct Item{
     int Chave;
-    struct Item *Next;
+    struct Item *Anterior;
 } Item;
 
 typedef struct Pilha{
@@ -14,5 +14,9 @@ typedef struct Pilha{
 } Pilha;
 
 Pilha *criarPilha();
+Item *criarItem(int X);
+void empilhar(Pilha *P, Item *I);
+int desempilhar(Pilha *P);
+
 
 #endif
