@@ -2,18 +2,14 @@
 #define CIDADES_H
 
 typedef struct{
-
-    char Nome[256]; // Nome do cidade
-    int Posicao;    // Posição da cidade
-
+  char Nome[256]; // Nome do cidade
+  int Posicao;    // Posição da cidade
 } Cidade;
 
 typedef struct{
-
-    int N;     // Número de cidades
-    int T;     // Comprimento da estrada
-    Cidade *C; // Vetor de cidades
-    
+  int N;     // Número de cidades
+  int T;     // Comprimento da estrada
+  Cidade *C; // Vetor de cidades
 } Estrada;
 
 Estrada *getEstrada(const char *nomeArquivo);            // Inicializa cidades no TAD indicado acima.
