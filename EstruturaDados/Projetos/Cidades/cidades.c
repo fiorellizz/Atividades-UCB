@@ -13,7 +13,6 @@ Estrada *getEstrada(const char *nomeArquivo){
   }
   
   FILE *arquivo;
-
   arquivo = fopen(nomeArquivo, "r");
 
   if (arquivo == NULL) {
@@ -21,26 +20,20 @@ Estrada *getEstrada(const char *nomeArquivo){
       exit(ERRO);
   }
 
-  int N;     // Número de cidades
-  int T;     // Comprimento da estrada
-
   fscanf(arquivo, "%d\n%d", &E->T, &E->N);
-  //até aqui ok, tamanho e qtd da estrada lidos
 
-  //agora tem que ler as cidades de acordo com a quantidade de já foi lida adicionando "itens"
-
-  //ler nome da cidade e depois criar o item?
-  
-  for (int i = 0; i < N; i++){
-    Cidade *C = (Cidade *) malloc(sizeof(Cidade));
-    if (C == NULL){
-        printf("ERRO: Falha ao alocar memória para a Cidade!\n");
-        exit(ERRO);
-    }
-
+  E->C = (Cidade *) malloc(E->N * sizeof(Cidade));
+    
+  if (E->C == NULL){
+      printf("ERRO: Falha ao alocar memória para a Cidade!\n");
+      exit(ERRO);
   }
 
-  free(arquivo);
+  for (int i = 0; i < E->N; i++){
+    fscanf(file, "%d %255[^\n]", &E->C[i].Posicao, &E->C[i].Nome);
+  }
+
+  fclose(arquivo);
   return (E);
 } // Inicializa cidades no TAD indicado acima.
 
