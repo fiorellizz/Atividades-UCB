@@ -72,8 +72,6 @@ double calcularMenorVizinhanca(const char *nomeArquivo) {
         }
     }
 
-    free(E->C);
-    free(E);
     return MenorVizinhanca;
 }
 
@@ -92,7 +90,6 @@ char *cidadeMenorVizinhanca(const char *nomeArquivo) {
     }
 
     char *nomeCidade = E->C[indiceMenorVizinhanca].Nome;
-    free(E->C);
-    free(E);
+    
     return nomeCidade;
 }
