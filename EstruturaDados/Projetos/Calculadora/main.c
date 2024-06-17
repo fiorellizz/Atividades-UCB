@@ -12,6 +12,7 @@ void executarTeste(char *posFixa, int numeroTeste) {
     }
 
     fprintf(arquivo, "TESTE %d:\n", numeroTeste);
+    fprintf(arquivo, "Forma posfixa: %s\n", posFixa);
     char *inFixa = getFormaInFixa(posFixa);
     fprintf(arquivo, "Forma infixa: %s\n", inFixa);
     float valor = getValor(posFixa);
