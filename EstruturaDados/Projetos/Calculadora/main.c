@@ -4,34 +4,33 @@
 #include <math.h>
 #include "calculadora.h"
 
-
 int main() {
-    char posFixa01[] = "3 4 + 5 *";
-    executarTeste(posFixa01, 1);
+    Expressao expr1 = {"3 4 + 5 *", "", 0.0};
+    executarTeste(&expr1, 1);
 
-    char posFixa02[] = "7 2 * 4 +";
-    executarTeste(posFixa02, 2);
+    Expressao expr2 = {"7 2 * 4 +", "", 0.0};
+    executarTeste(&expr2, 2);
 
-    char posFixa03[] = "8 5 2 4 + * +";
-    executarTeste(posFixa03, 3);
+    Expressao expr3 = {"8 5 2 4 + * +", "", 0.0};
+    executarTeste(&expr3, 3);
 
-    char posFixa04[] = "6 2 / 3 + 4 *";
-    executarTeste(posFixa04, 4);
+    Expressao expr4 = {"6 2 / 3 + 4 *", "", 0.0};
+    executarTeste(&expr4, 4);
 
-    char posFixa05[] = "9 5 2 8 * 4 + * +";
-    executarTeste(posFixa05, 5);
+    Expressao expr5 = {"9 5 2 8 * 4 + * +", "", 0.0};
+    executarTeste(&expr5, 5);
 
-    char posFixa06[] = "2 3 + log 5 /";
-    executarTeste(posFixa06, 6);
+    Expressao expr6 = {"2 3 + log 5 /", "", 0.0};
+    executarTeste(&expr6, 6);
 
-    char posFixa07[] = "10 log 3 ^ 2 +";
-    executarTeste(posFixa07, 7);
+    Expressao expr7 = {"10 log 3 ^ 2 +", "", 0.0};
+    executarTeste(&expr7, 7);
 
-    char posFixa08[] = "45 60 + 30 cos *";
-    executarTeste(posFixa08, 8);
+    Expressao expr8 = {"45 60 + 30 cos *", "", 0.0};
+    executarTeste(&expr8, 8);
 
-    char posFixa09[] = "0.5 45 sen 2 ^ +";
-    executarTeste(posFixa09, 9);
+    Expressao expr9 = {"0.5 45 sen 2 ^ +", "", 0.0};
+    executarTeste(&expr9, 9);
 
     return 0;
 }

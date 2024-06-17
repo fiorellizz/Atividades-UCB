@@ -4,8 +4,7 @@
     "stdlib.h": "c",
     "string.h": "c",
     "cidades.h": "c",
-    "stdio.h": "c",
-    "calculadora.h": "c"
+    "stdio.h": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

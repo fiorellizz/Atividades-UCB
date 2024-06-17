@@ -5,25 +5,6 @@
 #include "calculadora.h"
 
 #define ERRO 1
-#define MAX_EXPR_SIZE 512
-#define MAX_STACK_SIZE 100
-
-void executarTeste(char *posFixa, int numeroTeste) {
-    FILE *arquivo = fopen("Resultado.txt", "a");
-    if (arquivo == NULL) {
-        perror("Erro ao abrir o arquivo");
-        exit(ERRO);
-    }
-
-    fprintf(arquivo, "TESTE %d:\n", numeroTeste);
-    fprintf(arquivo, "Forma posfixa: %s\n", posFixa);
-    char *inFixa = getFormaInFixa(posFixa);
-    fprintf(arquivo, "Forma infixa: %s\n", inFixa);
-    float valor = getValor(posFixa);
-    fprintf(arquivo, "Valor da expressão: %.2f\n\n", valor);
-
-    fclose(arquivo);
-}
 
 void push(char stack[][MAX_EXPR_SIZE], int *top, const char* value) {
     if (*top < MAX_STACK_SIZE - 1) {
@@ -103,4 +84,21 @@ char *getFormaInFixa(char *str) {
     char* result = (char*) malloc(MAX_EXPR_SIZE * sizeof(char));
     strcpy(result, pop(stack, &top));
     return result;
+}
+
+void executarTeste(Expressao *expr, int numeroTeste) {
+    FILE *arquivo = fopen("Resultado.txt", "a");
+    if (arquivo == NULL) {
+        perror("Erro ao abrir o arquivo");
+        exit(ERRO);
+    }
+
+    fprintf(arquivo, "TESTE %d:\n", numeroTeste);
+    fprintf(arquivo, "Forma posfixa: %s\n", expr->posFixa);
+    strcpy(expr->inFixa, getFormaInFixa(expr->posFixa));
+    fprintf(arquivo, "Forma infixa: %s\n", expr->inFixa);
+    expr->Valor = getValor(expr->posFixa);
+    fprintf(arquivo, "Valor da expressão: %.2f\n\n", expr->Valor);
+
+    fclose(arquivo);
 }
