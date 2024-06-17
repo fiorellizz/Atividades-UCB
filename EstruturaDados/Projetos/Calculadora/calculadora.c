@@ -8,6 +8,23 @@
 #define MAX_EXPR_SIZE 512
 #define MAX_STACK_SIZE 100
 
+void executarTeste(char *posFixa, int numeroTeste) {
+    FILE *arquivo = fopen("Resultado.txt", "a");
+    if (arquivo == NULL) {
+        perror("Erro ao abrir o arquivo");
+        exit(ERRO);
+    }
+
+    fprintf(arquivo, "TESTE %d:\n", numeroTeste);
+    fprintf(arquivo, "Forma posfixa: %s\n", posFixa);
+    char *inFixa = getFormaInFixa(posFixa);
+    fprintf(arquivo, "Forma infixa: %s\n", inFixa);
+    float valor = getValor(posFixa);
+    fprintf(arquivo, "Valor da expressão: %.2f\n\n", valor);
+
+    fclose(arquivo);
+}
+
 void push(char stack[][MAX_EXPR_SIZE], int *top, const char* value) {
     if (*top < MAX_STACK_SIZE - 1) {
         strcpy(stack[++(*top)], value);

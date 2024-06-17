@@ -4,22 +4,6 @@
 #include <math.h>
 #include "calculadora.h"
 
-void executarTeste(char *posFixa, int numeroTeste) {
-    FILE *arquivo = fopen("Resultado.txt", "a");
-    if (arquivo == NULL) {
-        perror("Erro ao abrir o arquivo");
-        exit(1);
-    }
-
-    fprintf(arquivo, "TESTE %d:\n", numeroTeste);
-    fprintf(arquivo, "Forma posfixa: %s\n", posFixa);
-    char *inFixa = getFormaInFixa(posFixa);
-    fprintf(arquivo, "Forma infixa: %s\n", inFixa);
-    float valor = getValor(posFixa);
-    fprintf(arquivo, "Valor da expressão: %.2f\n\n", valor);
-
-    fclose(arquivo);
-}
 
 int main() {
     char posFixa01[] = "3 4 + 5 *";
