@@ -93,7 +93,7 @@ void executarTeste(char *posFixa, int numeroTeste) {
         exit(ERRO);
     }
 
-    fprintf(arquivo, "TESTE %d:\n", numeroTeste);
+    fprintf(arquivo, "TESTE 3.%d:\n", numeroTeste);
     fprintf(arquivo, "Forma posfixa: %s\n", posFixa);
     char *inFixa = getFormaInFixa(posFixa);
     fprintf(arquivo, "Forma infixa: %s\n", inFixa);
