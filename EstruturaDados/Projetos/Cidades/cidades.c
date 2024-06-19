@@ -28,8 +28,11 @@ Estrada *getEstrada(const char *nomeArquivo) {
         exit(ERRO);
     }
 
-    for (int i = 0; i < E->N; i++) fscanf(arquivo, "%d %255[^\n]", &E->C[i].Posicao, E->C[i].Nome);
-
+    for (int i = 0; i < E->N; i++){
+        fscanf(arquivo, "%d %s", &E->C[i].Posicao, E->C[i].Nome);
+        printf("%s ", E->C[i].Nome);
+    }
+    system("pause");
     fclose(arquivo);
 
     for (int i = 0; i < E->N - 1; i++) {
