@@ -1,0 +1,50 @@
+create database db_vendas_veiculos;
+
+use db_vendas_veiculos;
+
+create table Cliente
+(
+	id_cliente int unsigned not null auto_increment,
+    nome_cliente varchar(45) not null,
+    cnh_cliente varchar(25) not null,
+    placa_veiculo_cliente varchar(45),
+    tipo_cliente varchar(15) not null,
+	check ( tipo_cliente in ('Física','Jurídica')),
+    cartao_cliente varchar(16),
+    primary key(id_cliente)
+);
+
+create table Funcionario
+(
+	id_funcionario int unsigned not null auto_increment,
+    nome_funcionario varchar(45) not null,
+    salario_funcionario double not null default '0',
+    departamento_funcionario varchar(45) not null,
+    primary key(id_funcionario)
+);
+
+CREATE TABLE Venda (
+    id_venda INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    valor_venda DOUBLE NOT NULL,
+    data_venda DATE NOT NULL,
+    cliente_id INT UNSIGNED NOT NULL,
+    funcionario_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id_venda),
+    CONSTRAINT fk_cliente_id FOREIGN KEY (cliente_id)
+        REFERENCES Cliente (id_cliente),
+    CONSTRAINT fk_funcionario_id FOREIGN KEY (funcionario_id)
+        REFERENCES Funcionario (id_funcionario)
+);
+
+create table Veiculo
+(
+	id_veiculo int unsigned not null auto_increment,
+    marca_veiculo varchar(45) not null,
+    placa_veiculo varchar(10) not null unique,
+    valor_veiculo double not null,
+    modelo_veiculo varchar(30) not null,
+    ano_veiculo int unsigned not null,
+    venda_id int unsigned,
+    primary key(id_veiculo),
+    constraint fk_venda_id foreign key(venda_id) references Venda(id_venda)
+);
