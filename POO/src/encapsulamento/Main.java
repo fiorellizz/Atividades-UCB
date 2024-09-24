@@ -6,9 +6,9 @@ public class Main {
     public static void main(String[] args) {
         ContaBancaria conta = new ContaBancaria();
         Scanner sc = new Scanner(System.in);
-        int option;
+        int option = 1;
 
-        do{
+
             System.out.println("1 - Consultar Nome");
             System.out.println("2 - Alterar Nome");
             System.out.println("3 - Consultar Numero da conta");
@@ -49,7 +49,6 @@ public class Main {
                 default:
                     System.out.println("Option invalue");
                     break;
-        }while (option!=0);
 
         }
     }
