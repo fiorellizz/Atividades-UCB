@@ -8,7 +8,6 @@ for (let i = 0; i < value; i++) {
     }
 }
 
-
 alert('Bem vindo ao FiorelliBank');
 
 var isRuning = true;
